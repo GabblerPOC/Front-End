@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <title>Welcome</title>
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <script src="https://www.polymer-project.org/components/webcomponentsjs/webcomponents.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <link rel="import" href="https://www.polymer-project.org/components/core-icon-button/core-icon-button.html">
+    <link rel="import" href="https://www.polymer-project.org/components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="https://www.polymer-project.org/components/paper-button/paper-button.html">
+    <link rel="ïmport" href="https://www.polymer-project.org/components/core-meta/core-meta.html">
+    <link rel="import" href="https://www.polymer-project.org/components/core-transition/core-transition.html">
+    <link rel="import" href="https://www.polymer-project.org/components/core-animated-pages/core-animated-pages.html">
+    <link rel="import" href="https://www.polymer-project.org/components/paper-shadow/paper-shadow.html">
+    <link rel="import" href="https://www.polymer-project.org/components/paper-dialog/paper-dialog.html">
+    <link rel="import" href="https://www.polymer-project.org/components/core-overlay/core-overlay.html">
+    <link rel="import" href="https://www.polymer-project.org/components/core-field/core-field.html">
+    <link rel="import" href="https://www.polymer-project.org/components/paper-input/paper-input.html">
+    <link rel="import" href="https://www.polymer-project.org/components/paper-toast/paper-toast.html">
+    <link rel="import" href="https://www.polymer-project.org/components/core-animated-pages/core-animated-pages.html">
+    
+
+    <link rel="import" href="https://www.polymer-project.org/components/polymer/polymer.html">
+
+    <link rel="stylesheet" href="./stylesheets/main.css">
+
+</head>
+    <body>
+        <polymer-element name="x-el" noscript on-tap="{{switch}}">
+<template>
+  <style>
+    #hero {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50px;
+      height: 300px;
+      background-color: blue;
+    }
+  </style>
+  <div id="hero" hero-id="bar" hero></div>
+</template>
+</polymer-element>
+
+<polymer-element name="x-page-1" noscript>
+<template>
+  <style>
+    #hero1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 300px;
+      background-color: orange;
+    }
+  </style>
+  <div id="hero1" hero-id="foo" hero></div>
+  <div id="hero2" hero-id="bar" hero></div>
+</template>
+</polymer-element>
+
+<polymer-element name="x-page-2" noscript>
+<template>
+  <style>
+    #hero1 {
+      position: absolute;
+      top: 200px;
+      left: 300px;
+      width: 300px;
+      height: 300px;
+      background-color: orange;
+    }
+    #hero2 {
+      background-color: blue;
+      height: 150px;
+      width: 400px;
+    }
+  </style>
+  // The below element is one level of shadow from the core-animated-pages and will
+  // be transitioned.
+  <div id="hero1" hero-id="foo" hero></div>
+  // The below element contains a hero inside its shadowRoot making it two levels away
+  // from the core-animated-pages, and will not be transitioned.
+  <x-el></x-el>
+</template>
+</polymer-element>
+
+<core-animated-pages selected="{{selected}}">
+  <section id="page1" >
+    <div hero-id="hero" hero></div>
+  </section>
+  <section id="page2">
+    <div id="foo" hero-id="hero" hero?="{{selected === 1 || selected === 0}}" cross-fade="{{selected === 2}}"></div>
+  </section>
+  <section id="page3">
+  </section>
+</core-animated-pages>
+    </body>
+</html>
+<script>
+    Polymer({
+        selected : 0
+        switchon: function() {
+            selected = 0
+        },
+        switchoff: function() {
+            selected = 1
+        }
+    })
+</script>

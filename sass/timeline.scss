@@ -1,0 +1,63 @@
+@import "static.scss";
+
+:host {}
+
+body {
+    margin: 0;
+    padding: 0;
+    }
+
+#page-contener {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #F0F0F0;
+      }
+
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+#title-drawer {
+     background-color: #262626; 
+     color: #F0F0F0;
+}
+
+#content-drawer {
+    background-color: #323232;
+    color: #A0A0A0;
+}
+
+#contener-posts {
+    height: 100%;   
+    width: 100%;
+    margin: 10px;
+}
+
+#post {
+    
+    background-color: white;
+    padding: 10px;
+    h2 {
+        
+    }
+    
+}
+
+#blank-div {
+    height: 10px;   
+}
+
+#div-deco {
+    background-color: #262626;   
+    padding-left: 20px;
+    &:hover{
+        color: #F0F0F0;
+        cursor: pointer;
+    }
+    @include transition-property(all);
+    @include transition-duration(0.4s);
+}
+
+#panel-contener {
+   
+}

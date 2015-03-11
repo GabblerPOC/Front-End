@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <title>Welcome</title>
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <script src="https://www.polymer-project.org/components/webcomponentsjs/webcomponents.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <link rel="import" href="https://www.polymer-project.org/components/core-icon-button/core-icon-button.html">
+    <link rel="import" href="https://www.polymer-project.org/components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="https://www.polymer-project.org/components/paper-button/paper-button.html">
+    <link rel="ïmport" href="https://www.polymer-project.org/components/core-meta/core-meta.html">
+    <link rel="import" href="https://www.polymer-project.org/components/core-transition/core-transition.html">
+    <link rel="import" href="https://www.polymer-project.org/components/core-animated-pages/core-animated-pages.html">
+    <link rel="import" href="https://www.polymer-project.org/components/paper-shadow/paper-shadow.html">
+    <link rel="import" href="https://www.polymer-project.org/components/paper-dialog/paper-dialog.html">
+    <link rel="import" href="https://www.polymer-project.org/components/core-overlay/core-overlay.html">
+    <link rel="import" href="https://www.polymer-project.org/components/core-field/core-field.html">
+    <link rel="import" href="https://www.polymer-project.org/components/core-drawer-panel/core-drawer-panel.html">
+
+    <link rel="import" href="https://www.polymer-project.org/components/polymer/polymer.html">
+
+    <link rel="stylesheet" href="./stylesheets/main.css">
+
+</head>
+    <body>
+        <polymer-element name="main-element">
+            <template>
+                <link rel="stylesheet" href="./stylesheets/timeline.css">
+                <div id="page-contener">
+                    <core-drawer-panel>
+                          <core-header-panel drawer id="content-drawer">
+                                <core-toolbar id="title-drawer">
+                                      <div>Gabbler</div>
+                                </core-toolbar>
+                                <div vertical layout id="panel-contener">
+                                    <div flex>
+                                        content...
+                                    </div>
+                                    <div id="div-deco" on-tap="{{deconnexion}}">
+                                        <p>
+                                            Deconnexion
+                                        <p>
+                                    </div>
+                                </div>
+                          </core-header-panel>
+                          <core-header-panel main>
+                            <core-toolbar>
+                              <core-icon-button icon="menu" core-drawer-toggle></core-icon-button>
+                              <div>#Timeline</div>
+                            </core-toolbar>
+                            <div id="contener-posts" vertical layout>
+                            <paper-shadow z="1">
+                            <div id="post">
+                            <h2>Post #1</h2>
+                              <div id="content-post">
+                                  <p>Cards en voie d'apparition</p>
+                              </div>
+                              </div>
+                            </paper-shadow>
+                            <div id="blank-div"></div>
+                            <paper-shadow z="1">
+                            <div id="post">
+                            <h2>Post #2</h2>
+                              <div id="content-post">
+                                  <p>Une autre card</p>
+                              </div>
+                            </div>
+                            </paper-shadow>
+                            </div>
+                          </core-header-panel>
+                    </core-drawer-panel>
+                </div>
+            </template>
+            <script>
+                Polymer("main-element", {
+                    deconnexion: function() {
+                        window.location.href='index.html'    
+                    }
+                })
+            </script>
+        </polymer-element>
+        <main-element></main-element>
+    </body>
+</html>

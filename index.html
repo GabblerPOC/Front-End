@@ -1,0 +1,108 @@
+<!--
+88""Yb  dP"Yb  88     Yb  dP 8b    d8 888888 88""Yb     88""Yb 88""Yb  dP"Yb   88888 888888  dP""b8 888888 
+88__dP dP   Yb 88      YbdP  88b  d88 88__   88__dP     88__dP 88__dP dP   Yb     88 88__   dP   `"   88   
+88"""  Yb   dP 88  .o   8P   88YbdP88 88""   88"Yb      88"""  88"Yb  Yb   dP o.  88 88""   Yb        88   
+88      YbodP  88ood8  dP    88 YY 88 888888 88  Yb     88     88  Yb  YbodP  "bodP' 888888  YboodP   88   
+-->
+
+<!doctype html>
+<html>
+
+<head>
+
+  <title>Welcome</title>
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <script src="https://www.polymer-project.org/components/webcomponentsjs/webcomponents.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <link rel="import" href="https://www.polymer-project.org/components/core-icon-button/core-icon-button.html">
+    <link rel="import" href="https://www.polymer-project.org/components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="https://www.polymer-project.org/components/paper-button/paper-button.html">
+    <link rel="ïmport" href="https://www.polymer-project.org/components/core-meta/core-meta.html">
+    <link rel="import" href="https://www.polymer-project.org/components/core-transition/core-transition.html">
+    <link rel="import" href="https://www.polymer-project.org/components/core-animated-pages/core-animated-pages.html">
+    <link rel="import" href="https://www.polymer-project.org/components/paper-shadow/paper-shadow.html">
+    <link rel="import" href="https://www.polymer-project.org/components/paper-dialog/paper-dialog.html">
+    <link rel="import" href="https://www.polymer-project.org/components/core-overlay/core-overlay.html">
+    <link rel="import" href="https://www.polymer-project.org/components/core-field/core-field.html">
+    <link rel="import" href="https://www.polymer-project.org/components/paper-input/paper-input.html">
+    <link rel="import" href="https://www.polymer-project.org/components/paper-toast/paper-toast.html">
+    
+
+    <link rel="import" href="https://www.polymer-project.org/components/polymer/polymer.html">
+
+    <link rel="stylesheet" href="./stylesheets/main.css">
+
+</head>
+    <body>
+        <polymer-element name="main-element">
+            <template>
+               <link rel="stylesheet" href="./stylesheets/main.css">
+                <div id="page-contener">
+                    <nav id="navbar" class="navbar full">
+                       <paper-shadow class="card" z="1">
+                        <div class="navbar-container" horizontal layout>
+                            <a href="#" class"navbar-logo">
+                            <img src="./images/logo-front.png" class="logonav" title="Gabbler" />
+                            </a>
+                               <div flex></div>
+                               <div id="div-button-pair" flex self-center>
+                                <paper-button id="paper-inscription" on-tap="{{getForm}}">S'inscrire</paper-button>
+                                <paper-button id="paper-connection" on-tap="{{getTimeline}}">Se connecter</paper-button>
+                            </div>
+                        </div>
+                        </paper-shadow>
+                      </nav> 
+                    <div id="front">
+                        <div id="front-contener">
+                            <a href="#" class"front-logo">
+                                <img src="./images/logo-front.png" class="logo" tittle="Gabbler" />
+                            </a>
+                            <h1>Gabbler</h1>
+                            <p>Dein Syria per speciosam interpatet diffusa planitiem. hanc nobilitat Antiochia, mundo cognita civitas, cui non certaverit alia advecticiis ita adfluere copiis et internis, et Laodicia et Apamia itidemque Seleucia iam inde a primis auspiciis florentissimae.
+                            </p>
+                            <div id="button-contener">
+                                <paper-button raised id="paper-button" class="drag-element" on-tap="{{getForm}}">Get Form !</paper-button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="bottom">
+                    </div>
+                    <div id="footer">
+                    </div> 
+                </div>
+                    <core-overlay transition="core-transition-bottom" name="cover" opened="{{opened}}" backdrop>
+                        <h2>Formulaire d'inscription</h2>
+                        <paper-input-decorator label="Your Name" layout="" vertical="" floatinglabel autovalidate>
+                          <input is="name" placeholder="with core-input" aria-label="with core-input" required>
+                        </paper-input-decorator>
+                        <paper-input-decorator label="Your Lastname" layout="" vertical="" floatinglabel autovalidate>
+                          <input is="lastname" placeholder="with core-input" aria-label="with core-input" required>
+                        </paper-input-decorator>
+                        <paper-input-decorator label="Your Email" layout="" vertical="" floatinglabel autovalidate>
+                          <input is="email" placeholder="with core-input" aria-label="with core-input" required>
+                        </paper-input-decorator>
+                        <paper-input-decorator label="Your Password" layout="" vertical="" floatinglabel autovalidate>
+                          <input is="password" placeholder="with core-input" aria-label="with core-input" required>
+                        </paper-input-decorator>
+                        <div>By sending this form you agree with our terms and conditions</div>
+                        <paper-button raised id="send-button" core-overlay-toggle>Send</paper-button>
+                    </core-overlay>
+            </template>
+            <script>
+                Polymer("main-element", {
+                    getForm: function() {
+                        this.opened = "true"   
+                    },
+                    getTimeline: function() {
+                        window.location.href='timeline.html'   
+                    },
+                })
+            </script>
+        </polymer-element>
+        <main-element></main-element>
+    </body>
+</html>
+
+
