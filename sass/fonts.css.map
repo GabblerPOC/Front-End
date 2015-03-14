@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "fonts.css",
+  "sources": [
+    "fonts.scss"
+  ],
+  "names": [],
+  "mappings": "AAAA;AACA;EACI,aAAa;EACb,WAAW;EACX,aAAa;;;AAGjB,MAAM;EACL,aAAa;EACV,WAAW;EACX,kBAAkB",
+  "sourceRoot": ""
+}
