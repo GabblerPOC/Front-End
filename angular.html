@@ -1,0 +1,51 @@
+<html>
+
+<head>
+
+
+	<link rel="stylesheet" href="styles/style.css">
+	
+	
+
+
+</head>
+
+ <body  ng-app="GabblerApp">
+
+ 
+ <div data-ng-controller="LoginController">
+
+
+    <div ng-show="user.isConnected()">
+      
+      Je suis connecté avec le compte {{user.getUser().id}} , {{user.getUser().auth.email}}
+      
+      <button  ng-click="Logout()">Se deconnecter</button>
+    </div>
+
+
+ </div>
+ 
+  
+ 	<div ng-view>
+ 	    
+ 	</div>
+   
+
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.1/angular.js" ></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/restangular/1.3.1/restangular.js"></script>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.1/angular-route.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
+   <script type="text/javascript" src="scripts/services/authService.js"></script>
+   <script type="text/javascript" src="scripts/services/TokenInterceptor.js"></script>
+  
+    <script type="text/javascript" src="scripts/controllers/HomeController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/LoginController.js"></script>
+    
+
+   
+   
+ </body>
+</html>

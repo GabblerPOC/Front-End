@@ -1,0 +1,15 @@
+<p>
+	Vous etes au menu
+	<br>
+	<ul>
+	<li ng-repeat="u in users">
+		 id : {{u.id}}
+		 email : {{u.auth.email}}
+		 <button ng-click="Follow(u.id)" ng-model="FollowButton">Follow !</button>
+
+
+
+	</li>
+	</ul>
+
+</p>
