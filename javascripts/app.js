@@ -1,6 +1,5 @@
 
-
-var App = angular.module("GabblerApp", ['ngRoute','restangular','appServices','appControllers']);
+var App = angular.module("GabblerApp", ['ngRoute','restangular','appServices','appControllers','flash']);
 
 var appServices = angular.module('appServices', []);
 var appControllers = angular.module('appControllers', []);
@@ -28,7 +27,12 @@ App.config(function($routeProvider,$httpProvider,RestangularProvider) {
     			controller: "LoginController",
                 access: { requiredLogin: false }              
 
-    		})  
+    		})
+            .when('/register',{
+                templateUrl:"views/register.html",
+                controller: "RegisterController",
+                access: { requiredLogin: false }
+            })
     		.otherwise({
     			redirectTo: '/',
                 access: { requiredLogin: false }  

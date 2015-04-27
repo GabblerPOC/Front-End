@@ -4,15 +4,13 @@ appControllers.controller('HomeController', function($scope,$rootScope, Restangu
    
     $scope.users =Users.getList().$object;
 
-
-    $scope.Follow = function(Id){
+    $scope.Follow = function(Id, button){
     	$http.post(options.api.base_url+"/user/Follow",{id: Id})
     		.success(function(data){
 
     			console.log(data);
     			if(data.success){
-    				$scope.FollowButton.value = "UnFollow";
-
+                    button.value = "toto";
     			}
 
 

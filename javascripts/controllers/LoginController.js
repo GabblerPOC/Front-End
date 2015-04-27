@@ -1,8 +1,8 @@
 	
 
 appControllers.controller('LoginController',function($scope,$http,$rootScope,$location,$window,UserService,AuthenticationService,Restangular){
- 	$scope.email="olalex_69@hotmail.fr";
- 	$scope.password="123456789";
+ 	$scope.email="geeg@traineau.com";
+ 	$scope.password="traiperiph";
 	
 	
 	$scope.user = AuthenticationService;
