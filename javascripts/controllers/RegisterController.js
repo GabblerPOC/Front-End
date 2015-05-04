@@ -11,7 +11,7 @@ appControllers.controller('RegisterController', function($scope,$rootScope, Rest
             email: $scope.email,
             password: $scope.password,
             Name: $scope.Name,
-            Lastname: $scope.LastName,
+            LastName: $scope.LastName,
             Age: $scope.Age
         }
 

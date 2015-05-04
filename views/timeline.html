@@ -1,0 +1,16 @@
+<p>
+	Vous etes au menu
+	<br>
+	<p>Login : </p>
+	<input type="text" placeholder="Titre" ng-model="titre">
+	<input type="text" placeholder="Contenu" ng-model="contenu">
+	<input type="submit" value="Envoyer" ng-click="CreateGab()" >
+	<ul>
+	<li ng-repeat="u in gabs">
+		 titre : {{u.title}}
+		 content : {{u.content}}
+
+	</li>
+	</ul>
+
+</p>

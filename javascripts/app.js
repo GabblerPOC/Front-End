@@ -33,6 +33,11 @@ App.config(function($routeProvider,$httpProvider,RestangularProvider) {
                 controller: "RegisterController",
                 access: { requiredLogin: false }
             })
+            .when('/timeline',{
+                templateUrl:"views/timeline.html",
+                controller: "TimeLineController",
+                access: { requiredLogin: true }
+            })
     		.otherwise({
     			redirectTo: '/',
                 access: { requiredLogin: false }  
