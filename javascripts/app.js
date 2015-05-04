@@ -38,6 +38,11 @@ App.config(function($routeProvider,$httpProvider,RestangularProvider) {
                 controller: "TimeLineController",
                 access: { requiredLogin: true }
             })
+            .when('/profile',{
+                templateUrl:"views/profile.html",
+                controller: "ProfileController",
+                access: { requiredLogin: true }
+            })
     		.otherwise({
     			redirectTo: '/',
                 access: { requiredLogin: false }  
