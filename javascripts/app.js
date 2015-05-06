@@ -1,5 +1,5 @@
 
-var App = angular.module("GabblerApp", ['ngRoute','restangular','appServices','appControllers','flash']);
+var App = angular.module("GabblerApp", ['ngRoute','restangular','appServices','appControllers','flash','file-model']);
 
 var appServices = angular.module('appServices', []);
 var appControllers = angular.module('appControllers', []);

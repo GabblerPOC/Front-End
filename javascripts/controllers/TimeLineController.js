@@ -9,7 +9,23 @@ appControllers.controller('TimeLineController', function($scope,$http,flash){
 	 		flash("gab créé");
         }
 
+        $scope.Like = function(Id){
+    	$http.get(options.api.base_url+"/user/LikeGab/"+Id)
+    		.success(function(data){
 
+    			console.log(data);
+    			if(data.success){                    
+                    console.log('Gab Liked');
+    			}
+
+    		})
+    		.error(function(error){
+
+    			console.log(error);
+
+    		});
+    	
+    };
 
 
 });

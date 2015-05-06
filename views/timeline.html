@@ -9,8 +9,9 @@
 	<li ng-repeat="u in gabs">
 		 titre : {{u.title}}
 		 content : {{u.content}}
-
+		 <button ng-click="Like(u.id)">Like!</button>
 	</li>
+	
 	</ul>
 	<flash-messages></flash-messages>
 </p>

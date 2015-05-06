@@ -27,10 +27,6 @@ appControllers.controller('LoginController',function($scope,$http,$rootScope,$lo
 
 					console.log(error);					
 				});
-				
-				
-				
-
 
 			}).error(function(data){
 
