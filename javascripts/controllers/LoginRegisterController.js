@@ -1,19 +1,17 @@
-	
-
-appControllers.controller('LoginController',function($scope,$http,$rootScope,$location,$window,UserService,AuthenticationService,Restangular){
- 	$scope.email="geeg@traineau.com";
- 	$scope.password="traiperiph";
-
+appControllers.controller('LoginRegisterController',function($scope,$http,$rootScope,$location,$window,UserService,AuthenticationService, flash, $mdDialog,Restangular){
+ 	$scope.email="";
+ 	$scope.password="";
+	$scope.loader=false;
+    $scope.Name = "";
+    $scope.LastName= "";
+    $scope.Age = 21;
+    $scope.callbackReg = false;
 
 	$scope.user = AuthenticationService;
 
-
-
 	$scope.Login = function(){
-
-		
 		UserService.LogIn($scope.email,$scope.password).success(function(data){
-
+			$scope.loader = true;
 
 			var monobjet_json = JSON.stringify(data);
 			$window.sessionStorage.setItem("utilisateur",monobjet_json);
@@ -30,13 +28,14 @@ appControllers.controller('LoginController',function($scope,$http,$rootScope,$lo
 
 						
 				}).error(function(error){
-
+					$scope.loader = false;
 					console.log(error);					
 				});
 
 			}).error(function(data){
 
 				if(data.error){
+					$scope.loader = false;
 					$scope.Message = data.error;
 				}
 				
@@ -68,5 +67,32 @@ appControllers.controller('LoginController',function($scope,$http,$rootScope,$lo
                
             }
         }
+
+    $scope.Register = function(){
+        var params = {
+            email: $scope.email,
+            password: $scope.password,
+            Name: $scope.Name,
+            LastName: $scope.LastName,
+            Age: $scope.Age
+        };
+
+        $http.post(options.api.base_url+"/auth/register",params)
+            .success(function(data){
+                if(data.success == false)
+                {
+                    if(data.error == "E_VALIDATION")
+                    {
+                        flash(data.error.invalidAttributes.password[0].message);
+                        flash(data.error.invalidAttributes.email[0].message);
+                    }
+                } else if (data.success == true) {
+                    $scope.callbackReg = true;
+                }
+            })
+            .error(function(error){
+                console.log(error);
+            });
+        };
 
 });

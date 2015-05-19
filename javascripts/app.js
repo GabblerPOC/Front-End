@@ -1,5 +1,5 @@
 
-var App = angular.module("GabblerApp", ['ngRoute','restangular','appServices','appControllers','flash','file-model']);
+var App = angular.module("GabblerApp", ['ngMaterial', 'ngRoute','restangular','appServices','appControllers','flash','file-model']);
 
 var appServices = angular.module('appServices', []);
 var appControllers = angular.module('appControllers', []);
@@ -11,9 +11,6 @@ options.api.base_url = "http://localhost:1337";
 
 App.config(function($routeProvider,$httpProvider,RestangularProvider) {	
     
-       
-
-
     //Définition des routes de notre application
     	$routeProvider
     		.when('/',{
@@ -23,14 +20,14 @@ App.config(function($routeProvider,$httpProvider,RestangularProvider) {
 
     		})
     		.when('/login',{
-    			templateUrl: "views/login.html",
-    			controller: "LoginController",
+    			templateUrl: "views/loginRegister.html",
+    			controller: "LoginRegisterController",
                 access: { requiredLogin: false }              
 
     		})
             .when('/register',{
                 templateUrl:"views/register.html",
-                controller: "RegisterController",
+                controller: "LoginRegisterController",
                 access: { requiredLogin: false }
             })
             .when('/timeline',{
@@ -54,7 +51,7 @@ App.config(function($routeProvider,$httpProvider,RestangularProvider) {
     $httpProvider.interceptors.push('TokenInterceptor');
     $httpProvider.defaults.withCredentials = true;
 
-    
+
 });
 
 App.run(function($rootScope, $location, AuthenticationService) {
@@ -65,7 +62,4 @@ App.run(function($rootScope, $location, AuthenticationService) {
     });
 
 });
-    
-
-
     

@@ -1,0 +1,75 @@
+<div layout="column" ng-controller="LoginRegisterController">
+    <md-toolbar layout="row">
+        <div class="md-toolbar-tools">
+            <h1>Gabbler</h1>
+        </div>
+    </md-toolbar>
+    <div style="height: 20px"></div>
+    <div layout="row">
+        <div flex=20 hide-sm>
+        </div>
+        <div flex>
+            <md-card>
+                <md-toolbar class="md-warn" ng-show="Message">
+                    <div class="md-toolbar-tools">
+                        <h2 class="md-flex">{{Message}}</h2>
+                    </div>
+                </md-toolbar>
+                <md-toolbar class="md-accent" ng-if="callbackReg">
+                    <div class="md-toolbar-tools">
+                        <h2 class="md-flex">registration successful</h2>
+                    </div>
+                </md-toolbar>
+                <md-progress-linear md-mode="indeterminate" ng-if="loader"></md-progress-linear>
+                <md-card-content>
+                    <md-tabs md-dynamic-height md-border-bottom>
+                        <md-tab label="Login">
+                            <form ng-submit="Login()">
+                                <md-input-container>
+                                    <label>E-mail</label>
+                                    <input type="email" ng-model="email" name="email" required>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Password</label>
+                                    <input type="password" ng-model="password" name="password" required>
+                                </md-input-container>
+                                <md-button class="md-raised md-primary" type="submit">
+                                    Envoyer
+                                </md-button>
+                            </form>
+                        </md-tab>
+                        <md-tab label="Register">
+                            <form ng-submit="Register()">
+                                <md-input-container>
+                                    <label>E-mail</label>
+                                    <input type="email" ng-model="email" ng-model="email.text" required>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Password</label>
+                                    <input type="password" ng-model="password" required>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Name</label>
+                                    <input type="text" ng-model="Name" required>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Lastname</label>
+                                    <input type="text" ng-model="LastName" required>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Age</label>
+                                    <input type="number" ng-model="age" required>
+                                </md-input-container>
+                                <md-button class="md-raised md-primary" type="submit">
+                                    S'inscrire !
+                                </md-button>
+                            </form>
+                        </md-tab>
+                    </md-tabs>
+                </md-card-content>
+            </md-card>
+        </div>
+        <div flex=20 hide-sm>
+        </div>
+    </div>
+</div>
