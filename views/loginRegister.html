@@ -1,9 +1,4 @@
 <div layout="column" ng-controller="LoginRegisterController">
-    <md-toolbar layout="row">
-        <div class="md-toolbar-tools">
-            <h1>Gabbler</h1>
-        </div>
-    </md-toolbar>
     <div style="height: 20px"></div>
     <div layout="row">
         <div flex=20 hide-sm>
@@ -39,14 +34,17 @@
                             </form>
                         </md-tab>
                         <md-tab label="Register">
-                            <form ng-submit="Register()">
+                            <form ng-submit="Register()" name="userForm">
                                 <md-input-container>
                                     <label>E-mail</label>
                                     <input type="email" ng-model="email" ng-model="email.text" required>
                                 </md-input-container>
                                 <md-input-container>
                                     <label>Password</label>
-                                    <input type="password" ng-model="password" required>
+                                    <input type="password" ng-model="password" required name="password" md-maxlength="15" minlength="10">
+                                    <div ng-messages="userForm.password.$error" ng-show="userForm.password.$dirty">
+                                        <div ng-message="minlength">Password need to be at least 10 char long</div>
+                                    </div>
                                 </md-input-container>
                                 <md-input-container>
                                     <label>Name</label>
@@ -61,7 +59,7 @@
                                     <input type="number" ng-model="age" required>
                                 </md-input-container>
                                 <md-button class="md-raised md-primary" type="submit">
-                                    S'inscrire !
+                                    Register !
                                 </md-button>
                             </form>
                         </md-tab>

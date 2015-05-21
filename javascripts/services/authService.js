@@ -22,6 +22,13 @@ appServices.factory("AuthenticationService",function($window){
 			else{
 				return false;
 			}
+		},
+		isDisconnected: function(){
+			if(user){
+				return false;
+			} else {
+				return true;
+			}
 		}
 
 	}

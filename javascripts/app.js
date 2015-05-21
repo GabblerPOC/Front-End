@@ -16,7 +16,7 @@ App.config(function($routeProvider,$httpProvider,RestangularProvider) {
     		.when('/',{
     			templateUrl: "views/home.html",
     			controller: "HomeController",
-                access: { requiredLogin: true }
+                access: { requiredLogin: false }
 
     		})
     		.when('/login',{

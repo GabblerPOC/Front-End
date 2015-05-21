@@ -1,4 +1,4 @@
-appControllers.controller('LoginRegisterController',function($scope,$http,$rootScope,$location,$window,UserService,AuthenticationService, flash, $mdDialog,Restangular){
+appControllers.controller('LoginRegisterController',function($scope, $mdUtil, $mdSidenav,$http,$rootScope,$location,$window,UserService,AuthenticationService, flash, $mdDialog,Restangular){
  	$scope.email="";
  	$scope.password="";
 	$scope.loader=false;
@@ -6,10 +6,20 @@ appControllers.controller('LoginRegisterController',function($scope,$http,$rootS
     $scope.LastName= "";
     $scope.Age = 21;
     $scope.callbackReg = false;
+    $scope.SlideNav = buildToggler('right');
 
 	$scope.user = AuthenticationService;
 
-	$scope.Login = function(){
+    function buildToggler(navID) {
+        var debounceFn =  $mdUtil.debounce(function(){
+            $mdSidenav(navID)
+                .toggle()
+                .then(function () {
+                });
+        },300);
+        return debounceFn;
+    }
+    $scope.Login = function(){
 		UserService.LogIn($scope.email,$scope.password).success(function(data){
 			$scope.loader = true;
 
@@ -29,6 +39,7 @@ appControllers.controller('LoginRegisterController',function($scope,$http,$rootS
 						
 				}).error(function(error){
 					$scope.loader = false;
+                    $scope.callbackReg = false;
 					console.log(error);					
 				});
 
@@ -37,6 +48,7 @@ appControllers.controller('LoginRegisterController',function($scope,$http,$rootS
 				if(data.error){
 					$scope.loader = false;
 					$scope.Message = data.error;
+                    $scope.callbackReg = false;
 				}
 				
 
@@ -66,7 +78,7 @@ appControllers.controller('LoginRegisterController',function($scope,$http,$rootS
                 });
                
             }
-        }
+        };
 
     $scope.Register = function(){
         var params = {
@@ -94,5 +106,4 @@ appControllers.controller('LoginRegisterController',function($scope,$http,$rootS
                 console.log(error);
             });
         };
-
 });

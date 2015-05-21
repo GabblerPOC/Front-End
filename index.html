@@ -14,17 +14,29 @@
 
 
 <div data-ng-controller="LoginRegisterController">
+    <md-toolbar layout="row">
+        <div class="md-toolbar-tools" flex>
+            <h1>Gabbler</h1>
+        </div>
+        <div flex>
+        </div><!--
+        <div ng-show="user.isConnected()" layout="column"layout-align="center" flex>
+            <img src="{{user.getUser().UrlBackGround}}">
+        </div>-->
+        <md-button ng-click="SlideNav()" ng-show="user.isConnected()">{{user.getUser().Name}}</md-button>
+    </md-toolbar>
 
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right" layout="column" layout-align="center center">
+        <md-toolbar class="md-theme-light" flex layout-align="center center">
+            <h1 class="md-toolbar-tools" layout-align="center">{{user.getUser().Name}} {{user.getUser().LastName}}</h1>
+        </md-toolbar>
+        <div flex="85">
 
-    <div ng-show="user.isConnected()">
-
-        Je suis connecté avec le compte {{user.getUser().id}} , {{user.getUser().auth.email}}
-        <img src="{{user.getUser().UrlBackGround}}">
-
-        <button ng-click="Logout()">Se deconnecter</button>
-    </div>
-
-
+        </div>
+        <div>
+                <md-button ng-click="Logout()">Logout</md-button>
+        </div>
+    </md-sidenav>
 </div>
 
 

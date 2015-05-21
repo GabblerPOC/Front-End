@@ -1,4 +1,4 @@
-appControllers.controller('HomeController', function($scope,$rootScope, Restangular,$http){
+appControllers.controller('HomeController', function($scope,$rootScope, $location, Restangular,$http){
     
     var Users = Restangular.all("user");
    
@@ -21,6 +21,8 @@ appControllers.controller('HomeController', function($scope,$rootScope, Restangu
     		});
     	
     };
-
+	$scope.go = function ( path ) {
+		$location.path( path );
+	};
 
     });
