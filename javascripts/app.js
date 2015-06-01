@@ -40,6 +40,21 @@ App.config(function($routeProvider,$httpProvider,RestangularProvider) {
                 controller: "ProfileController",
                 access: { requiredLogin: true }
             })
+            .when('/followers',{
+                templateUrl:"views/followers.html",
+                controller: "FollowersController",
+                access: { requiredLogin: true }
+            })
+            .when('/following',{
+                templateUrl:"views/following.html",
+                controller: "FollowingController",
+                access: { requiredLogin: true }
+            })
+            .when('/gabsliked',{
+                templateUrl:"views/gabsliked.html",
+                controller: "GabsLikedController",
+                access: { requiredLogin: true }
+            })
     		.otherwise({
     			redirectTo: '/',
                 access: { requiredLogin: false }  
