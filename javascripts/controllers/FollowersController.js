@@ -2,7 +2,9 @@
  * Created by Oxachon on 01/06/2015.
  */
 appControllers.controller('FollowersController', function($scope,$http) {
-    $http.get(options.api.base_url + user.getUser().id+ "/followers").success(function (data) {
+    var current_u = $window.sessionStorage.getItem("utilisateur");
+    var user = JSON.parse(current_u);
+    $http.get(options.api.base_url + user.id+ "/followers").success(function (data) {
         console.log(data);
         $scope.users = data.users;
     })
