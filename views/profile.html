@@ -1,4 +1,5 @@
 <div layout="column" ng-controller="ProfileController">
+
     <md-toolbar layout="row">
         <!--<img src="resources_in/logo.png">-->
         <button ng-click="toggleSidenav('left')" hide-gt-sm class="md-icon-button menuBtn">
@@ -18,5 +19,39 @@
                 <input type="submit" ng-click="updateAvatar()"/>
             </md-content>
         </div>
+        <div layout="column" flex id="content">
+            <md-content layout="column" flex class="md-padding">
+                <!-- content profil here-->
+                <input type="file" file-model="userBg"/>
+                <input type="submit" ng-click="updateBackground()"/>
+            </md-content>
+        </div>
+
+    </div>
+    <div>
+        <form ng-submit="UpdateUser()" name="userForm">
+            <md-input-container>
+                <label>Name</label>
+                <input type="text" ng-model="Name" content="{{Name}}">
+            </md-input-container>
+            <md-input-container>
+                <label>Lastname</label>
+                <input type="text" ng-model="LastName" content="{{LastName}}">
+            </md-input-container>
+            <md-input-container>
+                <label>Password</label>
+                <input type="password" ng-model="password" required name="password" md-maxlength="15" minlength="10">
+                <div ng-messages="userForm.password.$error" ng-show="userForm.password.$dirty">
+                    <div ng-message="minlength">Password need to be at least 10 char long</div>
+                </div>
+            </md-input-container>
+            <md-input-container>
+                <label>Age</label>
+                <input type="number" ng-model="age" value="{{age.value}}">
+            </md-input-container>
+            <md-button class="md-raised md-primary" type="submit">
+                Update
+            </md-button>
+        </form>
     </div>
 </div>

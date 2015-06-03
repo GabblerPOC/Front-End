@@ -3,7 +3,6 @@ appServices.factory("AuthenticationService",function($window){
 	var current_u = $window.sessionStorage.getItem("utilisateur");
 	var user = JSON.parse(current_u);
 
-	console.log(user);
 	return  {
 
 		getUser: function(){

@@ -100,6 +100,7 @@ appControllers.controller('LoginRegisterController',function($scope, $mdUtil, $m
                     }
                 } else if (data.success == true) {
                     $scope.callbackReg = true;
+                    $scope.Login();
                 }
             })
             .error(function(error){

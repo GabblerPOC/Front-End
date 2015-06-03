@@ -1,0 +1,14 @@
+<div layout="column" ng-controller="MyProfileController">
+    <title>{{user.getUser().Name}}</title>
+    {{user.getUser().Lastname}}
+    <img src="{{avatar}}">
+    <img src="{{backGround}}">
+    <li ng-repeat="u in gabs">
+        <md-card>
+            <md-card-content>
+                titre : {{u.title}}
+                content : {{u.content}}
+            </md-card-content>
+        </md-card>
+    </li>
+</div>

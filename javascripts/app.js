@@ -55,6 +55,11 @@ App.config(function($routeProvider,$httpProvider,RestangularProvider) {
                 controller: "GabsLikedController",
                 access: { requiredLogin: true }
             })
+            .when('/myprofile',{
+                templateUrl:"views/MyProfile.html",
+                controller: "MyProfileController",
+                access: { requiredLogin: true }
+            })
     		.otherwise({
     			redirectTo: '/',
                 access: { requiredLogin: false }  

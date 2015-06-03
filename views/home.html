@@ -1,12 +1,24 @@
 <div layout="column" ng-controller="HomeController">
+    <video loop autoplay  poster="http://puu.sh/iaEdB/bdbe41a0a7.jpg" id="bgvid"
+           style="position: absolute; top: 50%; left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 0;
+            transform: translateX(-50%) translateY(-50%);
+            background-size: cover;">
+        <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+        <source src="http://puu.sh/iaT9r/d4b65fbe50.webm" type="video/webm">
+    </video>
     <div>
-        <div layout="column" layout-align="space-around center" style="margin: 200px" layout-margin>
-            <img src="images/logoPrin.png">
-            <h2 style="margin: 60px">let's start..</h2>
-            <md-button class="md-raised" ng-click="go('/login')" style="background-color: #01387F; color: white" >ok I'm in !</md-button>
+        <div layout="column" layout-align="space-around center" style="margin: 200px; z-index: 1000; " layout-margin>
+            <img src="images/logoPrin.png" style="z-index: 8; background: rgba(0,0,0,0.3);  padding: 2rem">
+            <h2 style="margin: 60px; z-index: 8; background: rgba(0,0,0,0.3);  padding: 1rem;  color: white">Let's start..</h2>
+            <md-button class="md-raised" ng-click="go('/login')" style="background-color: #01387F; color: white" >Ok I'm in !</md-button>
         </div>
     </div>
-    <div style="background-color:#202222; color:white">
+    <div style="background-color:#202222; color:white; z-index: 8">
         <div layout="row" layout-align="center center" layout-margin style="margin-top: 90px" layout-sm="column">
             <div layout="column" layout-align="center center" layout-margin flex>
                 <div>

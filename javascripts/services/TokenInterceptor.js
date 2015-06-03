@@ -1,7 +1,6 @@
 App.factory("TokenInterceptor", function($q,$window,$location,AuthenticationService){
     var current_u = $window.sessionStorage.getItem("utilisateur");
     var user = JSON.parse(current_u);
-    console.log(user);
 
 	return{
 
