@@ -1,4 +1,4 @@
-appControllers.controller('LoginRegisterController',function($scope, $mdUtil, $mdSidenav,$http,$rootScope,$location,$window,$mdDialog,UserService,AuthenticationService, flash,Restangular){
+appControllers.controller('LoginRegisterController',function($scope, $mdUtil, $mdSidenav,$http,$rootScope,$location,$window,UserService,AuthenticationService, flash, $mdDialog,Restangular){
  	$scope.email="";
  	$scope.password="";
 	$scope.loader=false;
