@@ -9,18 +9,18 @@ App.factory("TokenInterceptor", function($q,$window,$location,AuthenticationServ
             //Lors de chaque requête
 			$config.headers = $config.headers || {};
 
-           
-           
+
+
 			if($window.sessionStorage.token){
                 //Si on possède le token on l'ajoute au header
 				$config.headers['access_token'] = $window.sessionStorage.token;
 			}
-             
+
 			return $config;
 
 		},
 
-		
+
         requestError: function(rejection) {
             //Lors de requête error
             return $q.reject(rejection);
@@ -39,9 +39,9 @@ App.factory("TokenInterceptor", function($q,$window,$location,AuthenticationServ
                 //Mauvais token , on le supprime et on le delog
                 delete $window.sessionStorage.token;
                 AuthenticationService.setUser(false);
-                $location.path("/login");
+                $location.path("/");
             }
- 
+
             return $q.reject(rejection);
         }
 

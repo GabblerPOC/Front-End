@@ -1,4 +1,5 @@
 @import "static.scss";
+@import "compass/css3";
 
 :host {}
 
@@ -60,4 +61,21 @@ body {
 
 #panel-contener {
    
+}
+
+// Items
+
+.grid-item {
+  width: 33%;
+
+  &:first-child {
+    margin-bottom: 20px;
+  }
+}
+
+
+@media screen and ( max-width: 768px ) {
+  .grid-item {
+    width: 100%;
+  }
 }

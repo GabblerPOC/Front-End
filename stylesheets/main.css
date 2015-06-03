@@ -1,0 +1,235 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,300,500,700,800,900,600,200);
+/* line 2, ../sass/fonts.scss */
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 250%;
+  font-weight: lighter;
+}
+
+/* line 8, ../sass/fonts.scss */
+html, body {
+  font-family: 'Raleway', sans-serif;
+  font-size: 100%;
+  background-color: #FFF;
+}
+
+/* line 5, ../sass/main.scss */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 10, ../sass/main.scss */
+#page-contener {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 19, ../sass/main.scss */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #313131;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  -webkit-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+}
+
+/* line 27, ../sass/main.scss */
+.logonav {
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  -webkit-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+}
+
+/* line 32, ../sass/main.scss */
+.navbar.full {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #313131;
+}
+/* line 38, ../sass/main.scss */
+.navbar.full .navbar-container {
+  max-width: 90%;
+  padding-top: 2%;
+  margin: auto;
+}
+/* line 42, ../sass/main.scss */
+.navbar.full .navbar-container .logonav {
+  height: 100px;
+}
+
+/* line 49, ../sass/main.scss */
+.navbar.shrink {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #171717;
+}
+/* line 55, ../sass/main.scss */
+.navbar.shrink .container {
+  max-width: 90%;
+  padding-top: 2%;
+  margin: auto;
+}
+/* line 59, ../sass/main.scss */
+.navbar.shrink .container .logonav {
+  height: 30px;
+}
+
+/* line 65, ../sass/main.scss */
+#paper-connection {
+  background-color: #789e26;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #789e26;
+  color: white;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+/* line 70, ../sass/main.scss */
+#paper-connection:hover {
+  background-color: #313131;
+  color: #789e26;
+}
+
+/* line 83, ../sass/main.scss */
+#paper-inscription {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #6d7a8b;
+  color: #6d7a8b;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+/* line 88, ../sass/main.scss */
+#paper-inscription:hover {
+  color: white;
+  border-color: white;
+}
+
+/* line 99, ../sass/main.scss */
+#front {
+  color: white;
+  fill: white;
+  top: 0px;
+  background-color: #242424;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+/* line 108, ../sass/main.scss */
+#front #front-contener .logo {
+  height: 150px;
+  margin-top: 40%;
+}
+/* line 112, ../sass/main.scss */
+#front #front-contener h1 {
+  margin-top: 5%;
+}
+/* line 115, ../sass/main.scss */
+#front #front-contener p {
+  padding: 2%;
+}
+
+/* line 121, ../sass/main.scss */
+#paper-button {
+  background-color: #789e26;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+/* line 123, ../sass/main.scss */
+#paper-button:hover {
+  background-color: #2AA9E0;
+}
+
+/* line 129, ../sass/main.scss */
+#button-contener {
+  background-color: #242424;
+  text-align: center;
+  margin-top: 10%;
+}
+
+/* line 138, ../sass/main.scss */
+#bottom {
+  height: 300px;
+  background-color: #313131;
+}
+
+/* line 143, ../sass/main.scss */
+#footer {
+  height: 300px;
+  background-color: #242424;
+}
+
+/* line 151, ../sass/main.scss */
+core-overlay {
+  background-color: white;
+  padding: 1%;
+}
+/* line 154, ../sass/main.scss */
+core-overlay h2 {
+  text-align: center;
+}
+
+/* line 164, ../sass/main.scss */
+#page-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 170, ../sass/main.scss */
+#header-back {
+  position: absolute;
+  background-color: #171717;
+  top: 0;
+  height: 10% fixed;
+  width: 100%;
+}
+/* line 176, ../sass/main.scss */
+#header-back h1 {
+  color: white;
+  margin-left: 5%;
+  height: 70%;
+  margin-right: 20%;
+}
+
+/* line 185, ../sass/main.scss */
+#navbar-back {
+  max-width: 400px;
+  width: 20%;
+  height: 100%;
+  background-color: #313131;
+}

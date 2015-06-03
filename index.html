@@ -14,27 +14,30 @@
 
 
 <div data-ng-controller="LoginRegisterController">
-    <md-toolbar layout="row">
+    <md-toolbar layout="row" md-scroll-shrink>
         <div class="md-toolbar-tools" flex>
             <h1>Gabbler</h1>
         </div>
         <div flex>
-        </div><!--
-        <div ng-show="user.isConnected()" layout="column"layout-align="center" flex>
-            <img src="{{user.getUser().UrlBackGround}}">
-        </div>-->
+        </div>
         <md-button ng-click="SlideNav()" ng-show="user.isConnected()">{{user.getUser().Name}}</md-button>
     </md-toolbar>
 
-    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right" layout="column" layout-align="center center">
-        <md-toolbar class="md-theme-light" flex layout-align="center center">
-            <h1 class="md-toolbar-tools" layout-align="center">{{user.getUser().Name}} {{user.getUser().LastName}}</h1>
-        </md-toolbar>
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right" layout="column" layout-align="space-between center">
+        <div style="width: 100%">
+            <md-toolbar class="md-theme-light" flex layout-align="start center" display="row">
+                <div style="height: 20px"></div>
+                <img src="images/profil.png" style="border-radius: 120px">
+                <h1 class="md-toolbar-tools" layout-align="center">{{user.getUser().Name}} {{user.getUser().LastName}}</h1>
+            </md-toolbar>
+        </div>
         <div flex="85">
 
         </div>
-        <div>
-                <md-button ng-click="Logout()">Logout</md-button>
+        <div style="background-color: #D63E29; width: 100%" layout-align="center center">
+            <div flex>
+                <md-button ng-click="Logout()" style="color:white" >Logout</md-button>
+            </div>
         </div>
     </md-sidenav>
 </div>
@@ -67,6 +70,9 @@
 <script type="text/javascript" src="javascripts/controllers/LoginRegisterController.js"></script>
 <script type="text/javascript" src="./javascripts/controllers/TimeLineController.js"></script>
 <script type="text/javascript" src="./javascripts/controllers/ProfileController.js"></script>
+
+<!--Libraries -->
+<script type="text/javascript" src="./javascripts/libs/masonry.pkgd.min.js"></script>
 
 
 </body>
