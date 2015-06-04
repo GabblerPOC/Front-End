@@ -11,6 +11,9 @@
             <md-card-content>
                 titre : {{u.title}}
                 content : {{u.content}}
+                <p ng-hide="deleteGabP" >
+                    <button ng-click="deleteGab(u.id)">Delete </button>
+                </p>
             </md-card-content>
         </md-card>
     </li>

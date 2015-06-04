@@ -7,6 +7,7 @@ appControllers.controller('MyProfileController', function($scope,$http,$window, 
     if($routeParams.id == null) {
         //On cache le bouton follow
         $scope.followButton = true;
+        $scope.deleteGabP = false;
 
         //On met à jour l'utilisateur actuel
         $http.get(options.api.base_url + "/user/" + user.id).success(function (data) {
@@ -36,25 +37,40 @@ appControllers.controller('MyProfileController', function($scope,$http,$window, 
         });
 
         $scope.followButton = false;
+        $scope.deleteGabP = true;
         $scope.followText = "Follow";
 
-
-        $http.get(options.api.base_url + "/user/"+ user.id).success(function (data) {
+        $http.get(options.api.base_url + "/user/"+ user.id)
+        .success(function (data) {
             user= data;
-        });
-
-       /* for(i in user.following)
-        {
-            if(user_profile.id == i.id)
+            for(id in user.following)
             {
-                $scope.followText = "Unfollow";
+                if(user_profile.id == user.following[id].id)
+                {
+                    $scope.followText = "Unfollow";
+                }
             }
-        }*/
+        });
     }
 
     $scope.followUser = function(){
-        $http.post(options.api.base_url+"/user/Follow",{id: $routeParams.id})
-        .success(function(data){
+        if($scope.followText=="Follow") {
+            $http.post(options.api.base_url + "/user/Follow", {id: $routeParams.id})
+                .success(function (data) {
+                    console.log("Nice!");
+                });
+        }
+        else{
+            $http.post(options.api.base_url + "/user/Unfollow", {id: $routeParams.id})
+                .success(function (data) {
+                    console.log("Nice!");
+                });
+        }
+    }
+
+    $scope.deleteGab = function(id_){
+        $http.delete(options.api.base_url + "/user/gabs/", {id: id_})
+        .success(function (data) {
             console.log("Nice!");
         });
     }
