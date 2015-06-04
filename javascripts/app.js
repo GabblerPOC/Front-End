@@ -22,7 +22,7 @@ App.config(function($routeProvider,$httpProvider,RestangularProvider) {
     		.when('/login',{
     			templateUrl: "views/loginRegister.html",
     			controller: "LoginRegisterController",
-                access: { requiredLogin: false }              
+                access: { requiredLogin: false }
 
     		})
             .when('/register',{
@@ -55,9 +55,19 @@ App.config(function($routeProvider,$httpProvider,RestangularProvider) {
                 controller: "GabsLikedController",
                 access: { requiredLogin: true }
             })
+            .when('/myprofile/:id',{
+                templateUrl:"views/MyProfile.html",
+                controller: "MyProfileController",
+                access: { requiredLogin: true }
+            })
             .when('/myprofile',{
                 templateUrl:"views/MyProfile.html",
                 controller: "MyProfileController",
+                access: { requiredLogin: true }
+            })
+            .when('/searchfriend',{
+                templateUrl:"views/searchFriend.html",
+                controller: "SearchFriendController",
                 access: { requiredLogin: true }
             })
     		.otherwise({

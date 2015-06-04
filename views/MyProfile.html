@@ -3,6 +3,9 @@
     {{user.getUser().Lastname}}
     <img src="{{avatar}}">
     <img src="{{backGround}}">
+    <p ng-hide="followButton" >
+        <button ng-click="followUser()">{{followText}} </button>
+    </p>
     <li ng-repeat="u in gabs">
         <md-card>
             <md-card-content>

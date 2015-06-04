@@ -10,6 +10,8 @@ appControllers.controller('LoginRegisterController',function($scope, $mdUtil, $m
 
 	$scope.user = AuthenticationService;
 
+
+
     function buildToggler(navID) {
         var debounceFn =  $mdUtil.debounce(function(){
             $mdSidenav(navID)
