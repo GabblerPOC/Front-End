@@ -42,6 +42,7 @@ appControllers.controller('MyProfileController', function($scope,$http,$window, 
                 if(user_profile.id == user.following[id].id)
                 {
                     $scope.followText = "Unfollow";
+                    $scope.$apply();
                 }
             }
         });
