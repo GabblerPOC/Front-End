@@ -14,17 +14,10 @@ appControllers.controller('MyProfileController', function($scope,$http,$window, 
             var monobjet_json = JSON.stringify(data);
             $window.sessionStorage.setItem("utilisateur", monobjet_json);
             $scope.gabs = data.gabs;
+            $scope.NameShown = data.LastName + " " + data.Name;
+            $scope.avatar = options.api.base_url + data.UrlAvatar;
+            $scope.backGround = options.api.base_url + data.UrlBackGround;
         });
-
-        //On récupère l'utilisateur une fois mis à jour
-        var current_u2 = $window.sessionStorage.getItem("utilisateur");
-        var user2 = JSON.parse(current_u2);
-
-        //On set son avatar et son background
-        if (user != undefined) {
-            $scope.avatar = options.api.base_url + user2.UrlAvatar;
-            $scope.backGround = options.api.base_url + user2.UrlBackGround;
-        }
     }
     else
     {
@@ -34,6 +27,7 @@ appControllers.controller('MyProfileController', function($scope,$http,$window, 
             $scope.avatar = options.api.base_url + user_profile.UrlAvatar;
             $scope.backGround = options.api.base_url + user_profile.UrlBackGround;
             $scope.gabs = data.gabs;
+            $scope.NameShown = data.LastName + " " + data.Name;
         });
 
         $scope.followButton = false;

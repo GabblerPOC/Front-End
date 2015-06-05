@@ -1,21 +1,22 @@
-<div layout="column" ng-controller="MyProfileController" style="border-radius: 10px; width: 75%; height: auto;   position: relative; margin-left: auto; margin-right: auto">
+<div layout="column" ng-controller="MyProfileController" style="border-radius: 10px; width: 75%; height: auto; position: relative; margin-left: auto; margin-right: auto">
     <md-card >
         <img ng-src="{{backGround}}" class="md-card-image" alt="Washed Out" style="border-radius: 10px; width: auto; height: 50%;">
-        <md-card-content>
-            <img ng-src="{{avatar}}" class="md-avatar" style="width:150px; height: auto; border-radius: 100px;">
-            <div class="md-list-item-text">
-                <h2 class="md-title">Paracosm</h2>
-                <p>
-                    The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-                    two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-                </p>
-            </div>
+        <md-card-content >
+            <md-list-item class="md-3-line">
+                <img ng-src="{{avatar}}" class="md-avatar" style="width:15%; height: auto; border-radius: 15%; position: relative; top: -100px; background: rgba(0,0,0,0.3);  padding: 0.5rem; ">
+                <div class="md-list-item-text">
+                    <h2 class="md-title">{{NameShown}}</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam volutpat lorem ut aliquam elementum. Donec tincidunt, purus vitae porttitor orci aliquam.
+                    </p>
+                    <div class="md-actions" layout="row" layout-align="end center">
+                        <md-button ng-hide="followButton" ng-click="followUser()">{{followText}} </md-button>
+                        <md-button ng-click="redirectFollowers()">Followers</md-button>
+                        <md-button ng-click="redirectFollowing()">Following</md-button>
+                    </div>
+                </div>
+            </md-list-item>
         </md-card-content>
-        <div class="md-actions" layout="row" layout-align="end center">
-            <md-button ng-hide="followButton" ng-click="followUser()">{{followText}} </md-button>
-            <md-button ng-click="redirectFollowers()">Followers</md-button>
-            <md-button ng-click="redirectFollowing()">Following</md-button>
-        </div>
     </md-card>
     <md-divider></md-divider>
     <md-subheader class="md-no-sticky">Gabs:</md-subheader>
@@ -24,7 +25,7 @@
         <div class="md-list-item-text">
             <h3>{{u.title}}</h3>
             <p>{{u.content}}</p>
-            <md-button class="md-accent" ng-click="deleteGab(u.id)">Delete </md-button>
+            <md-button ng-hide="deleteGabP" class="md-accent" ng-click="deleteGab(u.id)">Delete </md-button>
         </div>
         <md-divider></md-divider>
     </md-list-item>
