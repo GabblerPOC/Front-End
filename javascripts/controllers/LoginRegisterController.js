@@ -80,6 +80,7 @@ appControllers.controller('LoginRegisterController',function($scope, $mdUtil, $m
                 		console.log("Logout de l'utilisateur");
                 		delete $window.sessionStorage.token;
                 		delete user;
+                        $window.sessionStorage.removeItem("utilisateur");
                 		$scope.user.setUser(false);
                 		$location.path("/login");
 

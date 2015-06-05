@@ -22,43 +22,45 @@ appControllers.controller('MyProfileController', function($scope,$http,$window, 
     else
     {
         var user_profile;
+        $scope.followButton = false;
+        $scope.deleteGabP = true;
+        $scope.followText = "Follow";
+
         $http.get(options.api.base_url + "/user/" + $routeParams.id).success(function (data) {
             user_profile = data;
             $scope.avatar = options.api.base_url + user_profile.UrlAvatar;
             $scope.backGround = options.api.base_url + user_profile.UrlBackGround;
             $scope.gabs = data.gabs;
             $scope.NameShown = data.LastName + " " + data.Name;
+            $http.get(options.api.base_url + "/user/"+ user.id)
+                .success(function (data) {
+                    data.following.some(function(id, index, array){
+                        if(user_profile.id == data.following[index].id)
+                        {
+                            $scope.followText = "Unfollow";
+                            $scope.$apply();
+                            return true;
+                        }
+                    });
+                });
         });
 
-        $scope.followButton = false;
-        $scope.deleteGabP = true;
-        $scope.followText = "Follow";
 
-        $http.get(options.api.base_url + "/user/"+ user.id)
-        .success(function (data) {
-            user= data;
-            for(id in user.following)
-            {
-                if(user_profile.id == user.following[id].id)
-                {
-                    $scope.followText = "Unfollow";
-                    $scope.$apply();
-                }
-            }
-        });
     }
 
     $scope.followUser = function(){
         if($scope.followText=="Follow") {
             $http.post(options.api.base_url + "/user/Follow", {id: $routeParams.id})
                 .success(function (data) {
-                    console.log("Nice!");
+                    $scope.followText = "Unfollow";
+                    $scope.$digest();
                 });
         }
         else{
             $http.post(options.api.base_url + "/user/Unfollow", {id: $routeParams.id})
                 .success(function (data) {
-                    console.log("Unfollowed!");
+                    $scope.followText = "Follow";
+                    $scope.$digest();
                 });
         }
     };
