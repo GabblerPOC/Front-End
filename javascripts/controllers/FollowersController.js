@@ -14,4 +14,10 @@ appControllers.controller('FollowersController', function($scope,$http, $window,
             $scope.users = data.followers;
         })
     }
+
+    $scope.redirectById = function redirectById(id)
+    {
+        $location.path("/myprofile/"+id);
+        $scope.apply();
+    };
 });

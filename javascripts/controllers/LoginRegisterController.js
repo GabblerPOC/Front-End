@@ -13,11 +13,13 @@ appControllers.controller('LoginRegisterController',function($scope, $mdUtil, $m
     //Mise à jour avatar user
     var current_u = $window.sessionStorage.getItem("utilisateur");
     var user = JSON.parse(current_u);
-    $http.get(options.api.base_url + "/user/" + user.id).success(function (data){
-        if(data.UrlAvatar != undefined)
-            $scope.imageProfile = options.api.base_url + data.UrlAvatar;
-        else $scope.imageProfile = "images/profil.png";
-    });
+    if(user != null) {
+        $http.get(options.api.base_url + "/user/" + user.id).success(function (data) {
+            if (data.UrlAvatar != undefined)
+                $scope.imageProfile = options.api.base_url + data.UrlAvatar;
+            else $scope.imageProfile = "images/profil.png";
+        });
+    }
 
     function buildToggler(navID) {
         var debounceFn =  $mdUtil.debounce(function(){
