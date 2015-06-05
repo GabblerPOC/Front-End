@@ -6,6 +6,8 @@
     <p ng-hide="followButton" >
         <button ng-click="followUser()">{{followText}} </button>
     </p>
+    <button ng-click="redirectFollowers()">Followers </button>
+    <button ng-click="redirectFollowing()">Following </button>
     <li ng-repeat="u in gabs">
         <md-card>
             <md-card-content>

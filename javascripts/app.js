@@ -50,6 +50,16 @@ App.config(function($routeProvider,$httpProvider,RestangularProvider) {
                 controller: "FollowingController",
                 access: { requiredLogin: true }
             })
+            .when('/followers/:id',{
+                templateUrl:"views/followers.html",
+                controller: "FollowersController",
+                access: { requiredLogin: true }
+            })
+            .when('/following/:id',{
+                templateUrl:"views/following.html",
+                controller: "FollowingController",
+                access: { requiredLogin: true }
+            })
             .when('/gabsliked',{
                 templateUrl:"views/gabsliked.html",
                 controller: "GabsLikedController",

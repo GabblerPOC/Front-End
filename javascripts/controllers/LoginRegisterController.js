@@ -10,7 +10,14 @@ appControllers.controller('LoginRegisterController',function($scope, $mdUtil, $m
 
 	$scope.user = AuthenticationService;
 
-
+    //Mise à jour avatar user
+    var current_u = $window.sessionStorage.getItem("utilisateur");
+    var user = JSON.parse(current_u);
+    $http.get(options.api.base_url + "/user/" + user.id).success(function (data){
+        if(data.UrlAvatar != undefined)
+            $scope.imageProfile = options.api.base_url + data.UrlAvatar;
+        else $scope.imageProfile = "images/profil.png";
+    });
 
     function buildToggler(navID) {
         var debounceFn =  $mdUtil.debounce(function(){
@@ -108,5 +115,29 @@ appControllers.controller('LoginRegisterController',function($scope, $mdUtil, $m
             .error(function(error){
                 console.log(error);
             });
-        };
+    };
+
+    $scope.rMyProfile = function rMyProfile()
+    {
+        $location.path("/myprofile/");
+        $scope.apply();
+    };
+
+    $scope.rTimeline = function rTimeline()
+    {
+        $location.path("/timeline/");
+        $scope.apply();
+    };
+
+    $scope.rSearchFriends = function rSearchFriends()
+    {
+        $location.path("/searchfriend/");
+        $scope.apply();
+    };
+
+    $scope.rProfile = function rProfile()
+    {
+        $location.path("/profile/");
+        $scope.apply();
+    };
 });

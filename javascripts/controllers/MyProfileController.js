@@ -1,4 +1,4 @@
-appControllers.controller('MyProfileController', function($scope,$http,$window, $routeParams) {
+appControllers.controller('MyProfileController', function($scope,$http,$window, $routeParams, $location) {
 
     //On récupère l'utilsateur actuel
     var current_u = $window.sessionStorage.getItem("utilisateur");
@@ -63,15 +63,29 @@ appControllers.controller('MyProfileController', function($scope,$http,$window, 
         else{
             $http.post(options.api.base_url + "/user/Unfollow", {id: $routeParams.id})
                 .success(function (data) {
-                    console.log("Nice!");
+                    console.log("Unfollowed!");
                 });
         }
-    }
+    };
 
     $scope.deleteGab = function(id_){
         $http.delete(options.api.base_url + "/user/gabs/", {id: id_})
         .success(function (data) {
             console.log("Nice!");
         });
-    }
+    };
+
+    $scope.redirectFollowers = function redirectFollowers(){
+        if($scope.followButton)
+            $location.path("/followers/");
+        else  $location.path("/followers/"+ $routeParams.id);
+        $scope.apply();
+    };
+
+    $scope.redirectFollowing = function redirectFollowing(){
+        if($scope.followButton)
+            $location.path("/following/");
+        else  $location.path("/following/"+ $routeParams.id);
+        $scope.apply();
+    };
 });
