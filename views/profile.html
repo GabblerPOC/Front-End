@@ -1,4 +1,4 @@
-<div layout="column" ng-controller="ProfileController">
+<div ng-controller="ProfileController">
 
     <md-toolbar layout="row">
         <!--<img src="resources_in/logo.png">-->
@@ -7,47 +7,78 @@
         </button>
         <h1 class="md-toolbar-tools" layout-align-gt-sm="left">Profil</h1>
     </md-toolbar>
-    <div layout="row" flex>
-        <div layout="column" flex id="content">
-            <md-content layout="column" flex class="md-padding">
-                <!-- content profil here-->
-                <input type="file" file-model="userPic"/>
-                <input type="submit" ng-click="updateAvatar()"/>
-            </md-content>
-        </div>
-        <div layout="column" flex id="content">
-            <md-content layout="column" flex class="md-padding">
-                <!-- content profil here-->
-                <input type="file" file-model="userBg"/>
-                <input type="submit" ng-click="updateBackground()"/>
-            </md-content>
-        </div>
+    <div style="background-color: #E5E5E5; min-height: 100%">
+        <div layout="row">
 
-    </div>
-    <div>
-        <form ng-submit="UpdateUser()" name="userForm">
-            <md-input-container>
-                <label>Name</label>
-                <input type="text" ng-model="Name" content="{{Name}}">
-            </md-input-container>
-            <md-input-container>
-                <label>Lastname</label>
-                <input type="text" ng-model="LastName" content="{{LastName}}">
-            </md-input-container>
-            <md-input-container>
-                <label>Password</label>
-                <input type="password" ng-model="password" required name="password" md-maxlength="15" minlength="10">
-                <div ng-messages="userForm.password.$error" ng-show="userForm.password.$dirty">
-                    <div ng-message="minlength">Password need to be at least 10 char long</div>
-                </div>
-            </md-input-container>
-            <md-input-container>
-                <label>Age</label>
-                <input type="number" ng-model="age" value="{{age.value}}">
-            </md-input-container>
-            <md-button class="md-raised md-primary" type="submit">
-                Update
-            </md-button>
-        </form>
+            <div flex="20"></div>
+            <md-card flex>
+                <md-card-content>
+                    <div layout="column" layout-align="center end">
+                        <div flex id="content">
+                            <md-content class="md-padding">
+                                <md-button>
+                                    <label for="file-input">Select Avatar</label>
+                                </md-button>
+                                <input id="file-input" type="file" file-model="userPic" ng-hide="true">
+
+                                <md-button style="border-radius: 100px">
+                                    <md-icon md-svg-src="images/cloud-upload.svg" type="submit"
+                                             ng-click="updateAvatar()"></md-icon>
+                                    <md-tooltip>
+                                        Update
+                                    </md-tooltip>
+                                </md-button>
+                            </md-content>
+                        </div>
+
+                        <div flex id="content">
+                            <md-content class="md-padding">
+                                <md-button>
+                                    <label for="back-input">Select Background</label>
+                                </md-button>
+                                <input type="file" file-model="userBg" id="back-input" ng-hide="true"/>
+
+                                <md-button style="border-radius: 100px">
+                                    <md-icon md-svg-src="images/cloud-upload.svg" type="submit"
+                                             ng-click="updateBackground()"></md-icon>
+                                    <md-tooltip>
+                                        Update
+                                    </md-tooltip>
+                                </md-button>
+                            </md-content>
+                        </div>
+                    </div>
+                    <div flex>
+                        <form ng-submit="UpdateUser()" name="userForm">
+                            <md-input-container>
+                                <label>Name</label>
+                                <input type="text" ng-model="Name" content="{{Name}}">
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Lastname</label>
+                                <input type="text" ng-model="LastName" content="{{LastName}}">
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Password</label>
+                                <input type="password" ng-model="password" required name="password" md-maxlength="15"
+                                       minlength="10">
+
+                                <div ng-messages="userForm.password.$error" ng-show="userForm.password.$dirty">
+                                    <div ng-message="minlength">Password need to be at least 10 char long</div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Age</label>
+                                <input type="number" ng-model="age" value="{{age.value}}">
+                            </md-input-container>
+                            <md-button class="md-raised md-primary" type="submit">
+                                Update All
+                            </md-button>
+                        </form>
+                    </div>
+                </md-card-content>
+            </md-card>
+            <div flex="20"></div>
+        </div>
     </div>
 </div>
