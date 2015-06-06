@@ -1,12 +1,56 @@
-<div layout="column" ng-controller="SearchFriendController">
-    <input type="text" ng-model="query"/>
-    <li ng-repeat="u in listUsers | filter:{LastName: query} ">
+<div layout="column" ng-controller="SearchFriendController" style="background-color: #E5E5E5; min-height: 100%">
+    <md-content layout="row" layout-sm="column" style="background-color: #E5E5E5">
+        <div flex="20">
+
+        </div>
+        <div flex layout="row">
+        <md-icon md-svg-src="images/magnify.svg"></md-icon>
+        <md-input-container flex>
+            <label>Search for friends</label>
+            <input type="text" ng-model="query"/>
+        </md-input-container>
+        </div>
+        <div flex="20">
+
+        </div>
+    </md-content>
+
+
+    <div ng-repeat="u in listUsers | filter:{LastName: query} " class="repeated-item" >
         <md-card>
             <md-card-content>
-                user : {{u.LastName}}
-                <button ng-click="redirectById(u.id)">Profile</button>
+                <div>
+                    <md-icon md-svg-src="images/account.svg"></md-icon>
+                    {{u.LastName}}
+                </div>
+                <md-button class="md-raised md-primary" ng-click="redirectById(u.id)">Profile</md-button>
             </md-card-content>
         </md-card>
-    </li>
+    </div>
 
 </div>
+
+<style>
+
+    .repeated-item.ng-enter, .repeated-item.ng-move {
+        -webkit-transition:0.5s linear all;
+        -moz-transition:0.5s linear all;
+        -o-transition:0.5s linear all;
+        transition:0.5s linear all;
+        opacity:0;
+        position: relative;
+        display: block;
+    }
+
+    .repeated-item.ng-enter.ng-enter-active,
+    .repeated-item.ng-move.ng-move-active {
+        opacity:1;
+    }
+    .repeated-item.ng-leave {
+        opacity: 1;
+        top: 0;
+        height: 30px;
+    }
+
+
+</style>
