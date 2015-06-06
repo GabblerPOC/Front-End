@@ -10,6 +10,7 @@
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam volutpat lorem ut aliquam elementum. Donec tincidunt, purus vitae porttitor orci aliquam.
                     </p>
                     <div class="md-actions" layout="row" layout-align="end center">
+                        <md-button ng-hide="gabsLikedButton" ng-click="gabsUsers()">Gabs Liked </md-button>
                         <md-button ng-hide="followButton" ng-click="followUser()">{{followText}} </md-button>
                         <md-button ng-click="redirectFollowers()">Followers</md-button>
                         <md-button ng-click="redirectFollowing()">Following</md-button>
@@ -22,7 +23,7 @@
     <md-divider></md-divider>
 
     <md-subheader class="md-no-sticky">Gabs:</md-subheader>
-    <md-list-item class="md-3-line" ng-repeat="u in gabs">
+    <md-list-item class="md-3-line" ng-repeat="u in gabs | orderBy:'id':true">
         <img ng-src="{{avatar}}" class="md-avatar" style="width:38px; height: auto">
         <div class="md-list-item-text">
             <h3>{{u.title}}</h3>
