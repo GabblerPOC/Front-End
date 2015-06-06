@@ -1,5 +1,5 @@
 
-var App = angular.module("GabblerApp", ['ngMaterial', 'ngRoute','restangular','appServices','appControllers','flash','file-model']);
+var App = angular.module("GabblerApp", ['ngMaterial', 'ngRoute','restangular','appServices','appControllers','flash','file-model', 'ngAnimate', 'masonry']);
 
 var appServices = angular.module('appServices', []);
 var appControllers = angular.module('appControllers', []);
@@ -102,4 +102,9 @@ App.run(function($rootScope, $location, AuthenticationService) {
     });
 
 });
-    
+
+App.filter('reverse', function() {
+    return function(items) {
+        return items.slice().reverse();
+    };
+});

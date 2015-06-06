@@ -10,7 +10,7 @@ appControllers.controller('LoginRegisterController',function($scope, $mdUtil, $m
 
 	$scope.user = AuthenticationService;
 
-    //Mise à jour avatar user
+    //Mise ï¿½ jour avatar user
     var current_u = $window.sessionStorage.getItem("utilisateur");
     var user = JSON.parse(current_u);
     if(user != null) {
@@ -38,20 +38,20 @@ appControllers.controller('LoginRegisterController',function($scope, $mdUtil, $m
 			$window.sessionStorage.setItem("utilisateur",monobjet_json);
 
 				$scope.isAuth = true;
-				
+
 				AuthenticationService.setUser(data);
 				user=data;
 
 				$http.get(options.api.base_url+"/user/jwt").success(function(data){
-				
+
 					$window.sessionStorage.token = data.token;
 					$location.path("/");
 
-						
+
 				}).error(function(error){
 					$scope.loader = false;
                     $scope.callbackReg = false;
-					console.log(error);					
+					console.log(error);
 				});
 
 			}).error(function(data){
@@ -61,7 +61,7 @@ appControllers.controller('LoginRegisterController',function($scope, $mdUtil, $m
 					$scope.Message = data.error;
                     $scope.callbackReg = false;
 				}
-				
+
 
 			});
 
@@ -88,7 +88,7 @@ appControllers.controller('LoginRegisterController',function($scope, $mdUtil, $m
 
                 	console.log("erreur lors du logout");
                 });
-               
+
             }
         };
 
@@ -118,29 +118,11 @@ appControllers.controller('LoginRegisterController',function($scope, $mdUtil, $m
             .error(function(error){
                 console.log(error);
             });
+
     };
 
-    $scope.rMyProfile = function rMyProfile()
-    {
-        $location.path("/myprofile/");
-        $scope.apply();
+    $scope.go = function(path) {
+        $location.path(path);
     };
 
-    $scope.rTimeline = function rTimeline()
-    {
-        $location.path("/timeline/");
-        $scope.apply();
-    };
-
-    $scope.rSearchFriends = function rSearchFriends()
-    {
-        $location.path("/searchfriend/");
-        $scope.apply();
-    };
-
-    $scope.rProfile = function rProfile()
-    {
-        $location.path("/profile/");
-        $scope.apply();
-    };
 });

@@ -13,7 +13,7 @@ appControllers.controller('TimeLineController', function($scope,$http,$mdToast){
 					.position($scope.getToastPosition())
 					.hideDelay(3000)
 			);
-        }
+        };
 
 	$scope.Like = function(Id){
     	$http.get(options.api.base_url+"/user/LikeGab/"+Id)
@@ -51,10 +51,10 @@ appControllers.controller('TimeLineController', function($scope,$http,$mdToast){
             .join(' ');
     };
 
-	var elem = document.querySelector('.grid');
+	var elem = document.querySelector('.tml');
 	var msnry = new Masonry( elem, {
 		// options
-		itemSelector: '.grid-item',
+		itemSelector: '.tile',
 		columnWidth: 0
 	});
 
