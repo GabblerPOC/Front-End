@@ -4,9 +4,10 @@ appControllers.controller('MyProfileController', function($scope,$http,$window, 
     var current_u = $window.sessionStorage.getItem("utilisateur");
     var user = JSON.parse(current_u);
 
-    if($routeParams.id == null) {
+    if($routeParams.id == null || $routeParams.id == user.id) {
         //On cache le bouton follow
         $scope.followButton = true;
+        $scope.gabsLikedButton = false;
         $scope.deleteGabP = false;
 
         //On met à jour l'utilisateur actuel
@@ -24,6 +25,7 @@ appControllers.controller('MyProfileController', function($scope,$http,$window, 
         var user_profile;
         $scope.followButton = false;
         $scope.deleteGabP = true;
+        $scope.gabsLikedButton= true;
         $scope.followText = "Follow";
 
         $http.get(options.api.base_url + "/user/" + $routeParams.id).success(function (data) {
@@ -66,10 +68,15 @@ appControllers.controller('MyProfileController', function($scope,$http,$window, 
     };
 
     $scope.deleteGab = function(id_){
-        $http.delete(options.api.base_url + "/user/gabs/", {id: id_})
+        $http.delete(options.api.base_url + "/gab/"+ id_)
         .success(function (data) {
             console.log("Nice!");
         });
+    };
+
+    $scope.gabsUsers = function gabsUsers(){
+        $location.path("/gabsliked/");
+        $scope.apply();
     };
 
     $scope.redirectFollowers = function redirectFollowers(){
