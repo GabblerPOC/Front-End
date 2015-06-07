@@ -27,12 +27,12 @@
         <div style="width: 100%">
             <md-toolbar class="md-theme-light" flex layout-align="start center" display="row">
                 <div style="height: 20px"></div>
-                <img src="images/profil.png" style="border-radius: 120px">
+                <img src="{{imageProfile}}" style="border-radius: 120px;width: 155px; height: auto;">
                 <h1 class="md-toolbar-tools" layout-align="center">{{user.getUser().Name}} {{user.getUser().LastName}}</h1>
             </md-toolbar>
         </div>
         <div style=" width: 100%" flex layout="column">
-                <md-button class="md-raised md-primary" ng-click="go('/profile')" >Edit my rofil</md-button>
+                <md-button class="md-raised md-primary" ng-click="go('/profile')" >Edit my profile</md-button>
                 <md-button class="md-raised md-primary" ng-click="go('/')" >Home</md-button>
                 <md-button class="md-raised md-primary" ng-click="go('/searchfriend')" >Searh for user</md-button>
                 <md-button class="md-raised md-primary" ng-click="go('/myprofile')" >See my profile</md-button>

@@ -45,14 +45,22 @@ appControllers.controller('ProfileController', function($scope,$http,$window){
 	}
 
 	$scope.UpdateUser = function(){
-		var params = {
-			user: {
+		var params;
+		if($scope.password!= undefined) {
+			params = {
 				password: $scope.password,
 				Name: $scope.Name,
 				LastName: $scope.LastName,
 				Age: $scope.age
-			}
-		};
+			};
+		}
+		 else {
+			params = {
+				Name: $scope.Name,
+				LastName: $scope.LastName,
+				Age: $scope.age
+			};
+		}
 
 		$http.post(options.api.base_url+"/user/ModifierProfile",params)
 			.success(function(data){
