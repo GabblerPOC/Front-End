@@ -29,10 +29,22 @@ appControllers.controller('TimeLineController', function($scope,$http,$mdToast){
 							.hideDelay(3000)
 					);
 				}
+				else{
+					$http.get(options.api.base_url+"/user/unLikeGab/"+Id)
+						.success(function(data){
+						$scope.disabled = true;
+						$mdToast.show(
+							$mdToast.simple()
+								.content('You unliked it !')
+								.position($scope.getToastPosition())
+								.hideDelay(3000)
+						);
+						console.log(data);
+					});
+				}
 
     		})
     		.error(function(error){
-
     			console.log(error);
 
     		});
