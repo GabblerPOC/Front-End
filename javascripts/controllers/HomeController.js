@@ -24,7 +24,7 @@ appControllers.controller('HomeController', function($scope,$rootScope, $locatio
 	$scope.go = function () {
 		var current_u = $window.sessionStorage.getItem("utilisateur");
 		var user = JSON.parse(current_u);
-		if(user.id != undefined)
+		if(user!= null)
 		{
 			$location.path('/myprofile' );
 		}
