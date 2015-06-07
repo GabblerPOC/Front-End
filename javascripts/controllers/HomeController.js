@@ -1,4 +1,4 @@
-appControllers.controller('HomeController', function($scope,$rootScope, $location, Restangular,$http){
+appControllers.controller('HomeController', function($scope,$rootScope, $location, Restangular,$http, $window){
     
     var Users = Restangular.all("user");
    
@@ -21,8 +21,15 @@ appControllers.controller('HomeController', function($scope,$rootScope, $locatio
     		});
     	
     };
-	$scope.go = function ( path ) {
-		$location.path( path );
+	$scope.go = function () {
+		var current_u = $window.sessionStorage.getItem("utilisateur");
+		var user = JSON.parse(current_u);
+		if(user.id != undefined)
+		{
+			$location.path('/myprofile' );
+		}
+		else $location.path('/login' );
+
 	};
 
     });
