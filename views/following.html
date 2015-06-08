@@ -1,11 +1,26 @@
 <div layout="column" ng-controller="FollowingController">
-    <li ng-repeat="u in users">
-        <md-card>
-            <md-card-content>
-                user : {{u.Name}}
-                LastName : {{u.LastName}}
-                <button ng-click="redirectById(u.id)">Profile</button>
-            </md-card-content>
-        </md-card>
-    </li>
+    <div layout="row" style="background-color: #E5E5E5; min-height: 100%">
+        <div flex="20" hide-sm></div>
+        <div flex>
+            <div ng-repeat="u in users">
+                <md-card>
+                    <md-card-content layout="column">
+                        <div layout="row" flex>
+                            <div>
+                                <div>
+                                    <p>{{u.Name}} {{u.LastName}}</p>
+                                </div>
+                            </div>
+                            <div flex></div>
+                            <div>
+                                <md-button ng-click="redirectById(u.id)">Profile</md-button>
+                            </div>
+                        </div>
+                        <md-divider></md-divider>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </div>
+        <div flex="20" hide-sm></div>
+    </div>
 </div>

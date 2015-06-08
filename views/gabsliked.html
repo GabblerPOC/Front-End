@@ -1,10 +1,29 @@
 <div layout="column" ng-controller="GabsLikedController">
-    <li ng-repeat="u in gabs">
-        <md-card>
-            <md-card-content>
-                titre : {{u.title}}
-                content : {{u.content}}
-            </md-card-content>
-        </md-card>
-    </li>
+
+        <div flex ng-repeat="u in gabs" layout="row">
+            <div flex="35" hide-sm></div>
+            <md-card flex>
+                <md-toolbar layout="row">
+                    <div class="md-toolbar-tools" flex>
+                        <div style="width: 40px">
+                            <img src="images/profil_petit.png" style="border-radius: 120px">
+                        </div>
+                        <h3 class="md-toolbar-tools">
+                            {{u.title}}
+                        </h3>
+                    </div>
+                </md-toolbar>
+                <md-card-content>
+                    {{u.content}}
+                </md-card-content>
+                <div>
+                    <md-button ng-click="Like(u.id)" ng-disabled="{{disabled}}" class="md-icon-button md-accent">
+                        <md-icon md-svg-src="images/like.svg" style="color: #D63E29" aria-label=""></md-icon>
+                    </md-button>
+                </div>
+            </md-card>
+            <div flex="35" hide-sm></div>
+        </div>
+
 </div>
+

@@ -1,11 +1,10 @@
 <div ng-controller="ProfileController">
 
     <md-toolbar layout="row">
-        <!--<img src="resources_in/logo.png">-->
         <button ng-click="toggleSidenav('left')" hide-gt-sm class="md-icon-button menuBtn">
             <span class="md-visually-hidden">Menu</span>
         </button>
-        <h1 class="md-toolbar-tools" layout-align-gt-sm="left">Profil</h1>
+        <h1 class="md-toolbar-tools" layout-align-gt-sm="left">Profil Settings</h1>
     </md-toolbar>
     <div style="background-color: #E5E5E5; min-height: 100%">
         <div layout="row">
@@ -22,11 +21,11 @@
                                 <input id="file-input" type="file" file-model="userPic" ng-hide="true">
 
                                 <md-button style="border-radius: 100px">
-                                    <md-icon md-svg-src="images/cloud-upload.svg" type="submit"
-                                             ng-click="updateAvatar()"></md-icon>
-                                    <md-tooltip>
-                                        Update
-                                    </md-tooltip>
+                                        <md-icon md-svg-src="images/cloud-upload.svg" type="submit"
+                                                 ng-click="updateAvatar()"></md-icon>
+                                        <md-tooltip>
+                                            Update
+                                        </md-tooltip>
                                 </md-button>
                             </md-content>
                         </div>
