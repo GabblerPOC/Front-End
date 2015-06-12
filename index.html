@@ -28,25 +28,25 @@
             <md-toolbar class="md-theme-light" flex layout-align="start center" display="row">
                 <div style="height: 20px"></div>
                 <img src="{{imageProfile}}" style="border-radius: 120px; width: 155px; height: auto;">
-                <h1 class="md-toolbar-tools" layout-align="center">{{user.getUser().Name}} {{user.getUser().LastName}}</h1>
-            </md-toolbar>
-        </div>
-        <div style=" width: 100%" flex layout="column">
-                <md-button class="md-raised md-primary" ng-click="go('/profile')" >Edit my profile</md-button>
-                <md-button class="md-raised md-primary" ng-click="go('/')" >Home</md-button>
-                <md-button class="md-raised md-primary" ng-click="go('/searchfriend')" >Searh for user</md-button>
-                <md-button class="md-raised md-primary" ng-click="go('/myprofile')" >See my profile</md-button>
-                <md-button class="md-raised md-primary" ng-click="go('/timeline')" >Timeline</md-button>
-        </div>
-        <div style="background-color: #D63E29; width: 100%" layout-align="center center">
-            <div flex>
-                <md-button ng-click="Logout()" style="color:white" >
-                <md-icon md-svg-src="images/power.svg" style="color: white;"></md-icon>
-                    Logout
-                </md-button>
-            </div>
-        </div>
-    </md-sidenav>
+<h1 class="md-toolbar-tools" layout-align="center">{{user.getUser().Name}} {{user.getUser().LastName}}</h1>
+</md-toolbar>
+</div>
+<div style=" width: 100%" flex layout="column">
+    <md-button class="md-raised md-primary" ng-click="go('/profile')" >Edit my profile</md-button>
+    <md-button class="md-raised md-primary" ng-click="go('/')" >Home</md-button>
+    <md-button class="md-raised md-primary" ng-click="go('/searchfriend')" >Searh for user</md-button>
+    <md-button class="md-raised md-primary" ng-click="go('/myprofile')" >See my profile</md-button>
+    <md-button class="md-raised md-primary" ng-click="go('/timeline')" >Timeline</md-button>
+</div>
+<div style="background-color: #D63E29; width: 100%" layout-align="center center">
+    <div flex>
+        <md-button ng-click="Logout()" style="color:white" >
+            <md-icon md-svg-src="images/power.svg" style="color: white;"></md-icon>
+            Logout
+        </md-button>
+    </div>
+</div>
+</md-sidenav>
 </div>
 
 
@@ -85,7 +85,8 @@
 
 <!--Libraries -->
 <script type="text/javascript" src="./javascripts/libs/masonry.pkgd.min.js"></script>
-<script type="text/javascript" src="./javascripts/libs/angular-masonry-directive.js"></script>
 <script type="text/javascript" src="./javascripts/libs/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript" src="./javascripts/libs/angular-masonry-directive.js"></script>
+
 </body>
 </html>

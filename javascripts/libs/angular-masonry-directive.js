@@ -54,13 +54,7 @@
                     update = master.update,
                     removeBrick = master.removeBrick,
                     appendBricks = master.appendBricks;                    
-                if (update) {
-                    imagesLoaded( elem.get(0), update);
-                    elem.ready(update);
-                }
-                if (appendBricks) {
-                    imagesLoaded( elem.get(0), appendBricks(elem));
-                }                
+
                 scope.$on('$destroy', function() {
                     if (removeBrick) {
                         removeBrick();
