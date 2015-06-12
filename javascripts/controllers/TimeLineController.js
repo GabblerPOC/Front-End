@@ -1,9 +1,18 @@
-appControllers.controller('TimeLineController', function($scope,$http,$mdToast){
+appControllers.controller('TimeLineController', function($scope,$http,$mdToast, $window){
 	 $http.get(options.api.base_url+"/timeline").success(function(data){
-	 	console.log(data);
 	 	$scope.gabs=data.gabs;
 	 })
-	$scope.disabled = false;
+    $scope.obj = { null : true};
+    var current_u = $window.sessionStorage.getItem("utilisateur");
+    var user = JSON.parse(current_u);
+    $http.get(options.api.base_url +"/user/"+ user.id).success(function (data) {
+        $scope.gabsL = data.GabLiked;
+        for (g in $scope.gabsL)
+        {
+            $scope.obj[$scope.gabsL[g].id] = true;
+        }
+    })
+
 
 	$scope.CreateGab = function() {
 	 		$http.post(options.api.base_url+"/user/CreateGab",{title: $scope.titre, content: $scope.contenu});
@@ -18,35 +27,31 @@ appControllers.controller('TimeLineController', function($scope,$http,$mdToast){
 	$scope.Like = function(Id){
     	$http.get(options.api.base_url+"/user/LikeGab/"+Id)
     		.success(function(data){
-
-    			console.log(data);
     			if(data.success){
-					$scope.disabled = true;
 					$mdToast.show(
 						$mdToast.simple()
-							.content('Mmmh.. you like it !')
+							.content('you like it !')
 							.position($scope.getToastPosition())
 							.hideDelay(3000)
 					);
+                    $scope.obj[Id] = true;
 				}
 				else{
 					$http.get(options.api.base_url+"/user/unLikeGab/"+Id)
 						.success(function(data){
-						$scope.disabled = true;
 						$mdToast.show(
 							$mdToast.simple()
 								.content('You unliked it !')
 								.position($scope.getToastPosition())
 								.hideDelay(3000)
 						);
-						console.log(data);
+                        $scope.obj[Id] = false;
 					});
 				}
 
     		})
     		.error(function(error){
     			console.log(error);
-
     		});
     	
     };

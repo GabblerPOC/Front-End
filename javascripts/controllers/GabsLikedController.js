@@ -5,7 +5,6 @@ appControllers.controller('GabsLikedController', function($scope,$http,$window) 
     var current_u = $window.sessionStorage.getItem("utilisateur");
     var user = JSON.parse(current_u);
     $http.get(options.api.base_url +"/user/"+ user.id).success(function (data) {
-        console.log(data);
         $scope.gabs = data.GabLiked;
     })
 });

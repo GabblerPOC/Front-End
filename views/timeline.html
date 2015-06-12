@@ -1,4 +1,4 @@
-<div ng-controller="TimeLineController" >
+<div>
     <md-toolbar>
         <h1 class="md-toolbar-tools" layout-align-gt-sm="left">Timeline</h1>
     </md-toolbar>
@@ -41,8 +41,9 @@
                             {{u.content}}
                         </md-card-content>
                         <div>
-                            <md-button ng-click="Like(u.id)" ng-disabled="{{disabled}}" class="md-icon-button md-accent">
-                                <md-icon md-svg-src="images/like.svg" style="color: #D63E29" aria-label=""></md-icon>
+                            <md-button ng-click="Like(u.id)" class="md-icon-button md-accent">
+                                <md-icon ng-show="obj[u.id] != true " md-svg-src="images/like.svg" style="color: #666666" aria-label=""></md-icon>
+                                <md-icon ng-show="obj[u.id] == true" md-svg-src="images/like.svg" style="color: #D63E29" aria-label=""></md-icon>
                             </md-button>
                         </div>
                     </md-card>
