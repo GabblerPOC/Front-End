@@ -1,4 +1,4 @@
-appControllers.controller('TimeLineController', function($scope,$http,$mdToast, $window){
+appControllers.controller('TimeLineController', function($scope,$http,$mdToast, $window, $timeout, $route){
 	 $http.get(options.api.base_url+"/timeline").success(function(data){
 	 	$scope.gabs=data.gabs;
 	 })
@@ -22,6 +22,13 @@ appControllers.controller('TimeLineController', function($scope,$http,$mdToast, 
 					.position($scope.getToastPosition())
 					.hideDelay(3000)
 			);
+        $timeout(function(){
+            $scope.$apply(function () {
+                $timeout(function() {
+                    $route.reload();
+                }, 200)
+            }, 200);
+        });
         };
 
 	$scope.Like = function(Id){
