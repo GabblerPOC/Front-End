@@ -1,7 +1,8 @@
 appControllers.controller('TimeLineController', function($scope,$http,$mdToast, $window, $timeout, $route){
 	 $http.get(options.api.base_url+"/timeline").success(function(data){
 	 	$scope.gabs=data.gabs;
-	 })
+		 $scope.baseURL = options.api.base_url;
+	 });
     $scope.obj = { null : true};
     var current_u = $window.sessionStorage.getItem("utilisateur");
     var user = JSON.parse(current_u);

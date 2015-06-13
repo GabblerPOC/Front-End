@@ -2,6 +2,7 @@ appControllers.controller('SearchFriendController', function($scope,$http,$windo
     $scope.listUsers = [];
     $http.get(options.api.base_url + "/user/" ).success(function (data) {
         $scope.listUsers = data;
+        $scope.baseURL = options.api.base_url;
     });
 
     $scope.redirectById = function redirectById(id)

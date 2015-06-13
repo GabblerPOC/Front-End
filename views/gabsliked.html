@@ -5,9 +5,6 @@
             <md-card flex>
                 <md-toolbar layout="row">
                     <div class="md-toolbar-tools" flex>
-                        <div style="width: 40px">
-                            <img src="images/profil_petit.png" style="border-radius: 120px">
-                        </div>
                         <h3 class="md-toolbar-tools">
                             {{u.title}}
                         </h3>
@@ -17,7 +14,7 @@
                     {{u.content}}
                 </md-card-content>
                 <div>
-                    <md-button ng-click="Like(u.id)" ng-disabled="{{disabled}}" class="md-icon-button md-accent">
+                    <md-button ng-click="disLike(u.id)" ng-disabled="{{disabled}}" class="md-icon-button md-accent">
                         <md-icon md-svg-src="images/like.svg" style="color: #D63E29" aria-label=""></md-icon>
                     </md-button>
                 </div>
@@ -27,3 +24,19 @@
 
 </div>
 
+<style>
+    .tile {
+        width: 33%;
+    }
+
+    .tile:first-child {
+        margin-bottom: 20px;
+    }
+
+    @media screen and ( max-width: 768px ) {
+        .tile {
+            width: 100%;
+        }
+    }
+
+</style>
