@@ -1,6 +1,6 @@
-appControllers.controller('MyProfileController', function($scope,$http,$window, $routeParams, $location) {
+appControllers.controller('MyProfileController', function($scope,$http,$window, $routeParams, $location, $mdToast, $timeout, $route) {
 
-    //On récupère l'utilsateur actuel
+    //On rï¿½cupï¿½re l'utilsateur actuel
     var current_u = $window.sessionStorage.getItem("utilisateur");
     var user = JSON.parse(current_u);
 
@@ -10,7 +10,7 @@ appControllers.controller('MyProfileController', function($scope,$http,$window, 
         $scope.gabsLikedButton = false;
         $scope.deleteGabP = false;
 
-        //On met à jour l'utilisateur actuel
+        //On met ï¿½ jour l'utilisateur actuel
         $http.get(options.api.base_url + "/user/" + user.id).success(function (data) {
             var monobjet_json = JSON.stringify(data);
             $window.sessionStorage.setItem("utilisateur", monobjet_json);
@@ -67,10 +67,21 @@ appControllers.controller('MyProfileController', function($scope,$http,$window, 
         }
     };
 
+
     $scope.deleteGab = function(id_){
         $http.delete(options.api.base_url + "/gab/"+ id_)
-        .success(function (data) {
-            console.log("Nice!");
+        .success(function () {
+            $mdToast.show({
+                position: "bottom left right",
+                template: "<md-toast style='background-color: #F2452B; position: fixed'>Gab deleted !</md-toast>"
+            });
+            $timeout(function(){
+                $scope.$apply(function () {
+                    $timeout(function() {
+                        $route.reload();
+                    }, 200)
+                }, 200);
+            });
         });
     };
 
