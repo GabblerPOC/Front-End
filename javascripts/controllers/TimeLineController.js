@@ -38,7 +38,7 @@ appControllers.controller('TimeLineController', function($scope,$http,$mdToast, 
     			if(data.success){
 					$mdToast.show(
 						$mdToast.simple()
-							.content('you like it !')
+							.content('You liked it !')
 							.position($scope.getToastPosition())
 							.hideDelay(3000)
 					);
