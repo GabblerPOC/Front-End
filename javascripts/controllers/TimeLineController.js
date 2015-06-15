@@ -1,8 +1,22 @@
-appControllers.controller('TimeLineController', function($scope,$http,$mdToast, $window, $timeout, $route){
+appControllers.controller('TimeLineController', function($scope,$http,$mdToast, $window, $timeout, $route, $rootScope){
+	$scope.msnry = null;
+
+	function Masonry(){
+		if($scope.msnry == null || typeof $scope.msnry == undefined) {
+			var elem = document.querySelector('.tml');
+			$scope.msnry = new Masonry(elem, {
+				// options
+				itemSelector: '.tile',
+				columnWidth: 0
+			});
+		}else{
+			$scope.msnry.reload();
+		}
+	}
+
 	 $http.get(options.api.base_url+"/timeline").success(function(data){
 	 	$scope.gabs=data.gabs;
-		 $scope.baseURL = options.api.base_url;
-	 });
+	 })
     $scope.obj = { null : true};
     var current_u = $window.sessionStorage.getItem("utilisateur");
     var user = JSON.parse(current_u);
@@ -16,21 +30,22 @@ appControllers.controller('TimeLineController', function($scope,$http,$mdToast, 
 
 
 	$scope.CreateGab = function() {
-	 		$http.post(options.api.base_url+"/user/CreateGab",{title: $scope.titre, content: $scope.contenu});
-			$mdToast.show(
-				$mdToast.simple()
-					.content('You just posted a Gab !')
-					.position($scope.getToastPosition())
-					.hideDelay(3000)
-			);
-        $timeout(function(){
-            $scope.$apply(function () {
-                $timeout(function() {
-                    $route.reload();
-                }, 200)
-            }, 200);
-        });
-        };
+		$http.post(options.api.base_url+"/user/CreateGab",{title: $scope.titre, content: $scope.contenu})
+			.success(function(data){
+				$mdToast.show(
+					$mdToast.simple()
+						.content('You just posted a Gab !')
+						.position($scope.getToastPosition())
+						.hideDelay(3000)
+				);
+				$http.get(options.api.base_url+"/timeline").success(function(data){
+					$scope.gabs=data.gabs;
+					$scope.$digest();
+					Masonry();
+				});
+			});
+
+	};
 
 	$scope.Like = function(Id){
     	$http.get(options.api.base_url+"/user/LikeGab/"+Id)
@@ -75,13 +90,6 @@ appControllers.controller('TimeLineController', function($scope,$http,$mdToast, 
             .filter(function(pos) { return $scope.toastPosition[pos]; })
             .join(' ');
     };
-
-	var elem = document.querySelector('.tml');
-	var msnry = new Masonry( elem, {
-		// options
-		itemSelector: '.tile',
-		columnWidth: 0
-	});
 
 
 });

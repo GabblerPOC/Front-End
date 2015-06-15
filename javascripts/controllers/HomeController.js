@@ -2,7 +2,7 @@ appControllers.controller('HomeController', function($scope,$rootScope, $locatio
     
     var Users = Restangular.all("user");
    
-    $scope.users =Users.getList().$object;
+    $scope.users = Users.getList().$object;
 
     $scope.Follow = function(Id, button){
     	$http.post(options.api.base_url+"/user/Follow",{id: Id})
