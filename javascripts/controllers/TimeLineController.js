@@ -1,22 +1,24 @@
 appControllers.controller('TimeLineController', function($scope,$http,$mdToast, $window, $timeout, $route, $rootScope){
 	$scope.msnry = null;
 
-	function Masonry(){
-		if($scope.msnry == null || typeof $scope.msnry == undefined) {
-			var elem = document.querySelector('.tml');
-			$scope.msnry = new Masonry(elem, {
-				// options
-				itemSelector: '.tile',
-				columnWidth: 0
-			});
-		}else{
-			$scope.msnry.reload();
-		}
+	$scope.Masonry2 = function Masonry2(){
+		var elem = document.querySelector('.tml');
+		$scope.msnry = new Masonry(elem, {
+			// options
+			itemSelector: '.tile',
+			columnWidth: 0,
+			transitionDuration: 0.4,
+			isAnimated: true
+		});
 	}
 
 	 $http.get(options.api.base_url+"/timeline").success(function(data){
 	 	$scope.gabs=data.gabs;
-	 })
+
+		 $scope.baseURL = options.api.base_url;
+
+	 });
+
     $scope.obj = { null : true};
     var current_u = $window.sessionStorage.getItem("utilisateur");
     var user = JSON.parse(current_u);
@@ -26,7 +28,7 @@ appControllers.controller('TimeLineController', function($scope,$http,$mdToast, 
         {
             $scope.obj[$scope.gabsL[g].id] = true;
         }
-    })
+    });
 
 
 	$scope.CreateGab = function() {
@@ -40,12 +42,12 @@ appControllers.controller('TimeLineController', function($scope,$http,$mdToast, 
 				);
 				$http.get(options.api.base_url+"/timeline").success(function(data){
 					$scope.gabs=data.gabs;
-					$scope.$digest();
 					Masonry();
 				});
 			});
 
 	};
+
 
 	$scope.Like = function(Id){
     	$http.get(options.api.base_url+"/user/LikeGab/"+Id)
@@ -85,6 +87,7 @@ appControllers.controller('TimeLineController', function($scope,$http,$mdToast, 
         left: true,
         right: false
     };
+
     $scope.getToastPosition = function() {
         return Object.keys($scope.toastPosition)
             .filter(function(pos) { return $scope.toastPosition[pos]; })

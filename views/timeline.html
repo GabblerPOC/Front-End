@@ -5,9 +5,9 @@
     <md-content style="background-color: #E5E5E5; min-height: 100%">
         <div layout="row">
             <div flex="20" hide-sm></div>
-            <div masonry='{ "transitionDuration" : "0.4s" , "itemSelector" : ".tile" , "load-images" : "false"}' style="width: 900px" class="tml">
+            <div style="width: 900px" class="tml">
 
-                <div masonry-tile class="tile">
+                <div class="tile">
                     <md-card>
                         <md-card-content>
                                 <md-input-container>
@@ -25,9 +25,10 @@
                     </md-card>
                 </div>
 
-                <div ng-repeat="u in gabs | reverse" masonry-tile class="tile" >
+                <div ng-repeat="u in gabs | reverse"  class="tile">
                     <md-card>
                         <md-toolbar layout="row">
+
                             <div class="md-toolbar-tools" flex>
                                 <div style="width: 40px">
                                     <img src="{{baseURL}}{{u.owner.UrlAvatar}}" style="border-radius: 120px">
@@ -47,6 +48,9 @@
                             </md-button>
                         </div>
                     </md-card>
+                    <div ng-if="$last">
+                        {{ Masonry2() }}
+                    </div>
                 </div>
             </div>
             <div flex="20"  hide-sm></div>
