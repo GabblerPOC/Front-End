@@ -9,10 +9,9 @@ appControllers.controller('HomeController', function($scope,$rootScope, Restangu
     		.success(function(data){
 
     			console.log(data);
-    			if(data.success){
-                    button.value = "toto";
+    			if(data.success){                    
+                    console.log('success');
     			}
-
 
     		})
     		.error(function(error){

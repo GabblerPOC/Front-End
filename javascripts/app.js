@@ -1,5 +1,5 @@
 
-var App = angular.module("GabblerApp", ['ngRoute','restangular','appServices','appControllers','flash']);
+var App = angular.module("GabblerApp", ['ngRoute','restangular','appServices','appControllers','flash','file-model']);
 
 var appServices = angular.module('appServices', []);
 var appControllers = angular.module('appControllers', []);
@@ -32,6 +32,16 @@ App.config(function($routeProvider,$httpProvider,RestangularProvider) {
                 templateUrl:"views/register.html",
                 controller: "RegisterController",
                 access: { requiredLogin: false }
+            })
+            .when('/timeline',{
+                templateUrl:"views/timeline.html",
+                controller: "TimeLineController",
+                access: { requiredLogin: true }
+            })
+            .when('/profile',{
+                templateUrl:"views/profile.html",
+                controller: "ProfileController",
+                access: { requiredLogin: true }
             })
     		.otherwise({
     			redirectTo: '/',

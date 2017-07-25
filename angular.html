@@ -19,13 +19,14 @@
     <div ng-show="user.isConnected()">
       
       Je suis connecté avec le compte {{user.getUser().id}} , {{user.getUser().auth.email}}
+      <img src="{{user.getUser().UrlBackGround}}">
       
       <button  ng-click="Logout()">Se deconnecter</button>
     </div>
 
 
  </div>
- 
+  
   
  	<div ng-view>
  	    
@@ -41,10 +42,14 @@
    <script type="text/javascript" src="./javascripts/services/authService.js"></script>
    <script type="text/javascript" src="./javascripts/services/TokenInterceptor.js"></script>
    <script type="text/javascript" src="./javascripts/angular-flash.js"></script>
-  
+    <script type="text/javascript" src="./javascripts/angular-file-model.js"></script>
+
     <script type="text/javascript" src="./javascripts/controllers/HomeController.js"></script>
     <script type="text/javascript" src="./javascripts/controllers/LoginController.js"></script>
     <script type="text/javascript" src="./javascripts/controllers/RegisterController.js"></script>
+    <script type="text/javascript" src="./javascripts/controllers/TimeLineController.js"></script>
+    <script type="text/javascript" src="./javascripts/controllers/ProfileController.js"></script>
+
 
     
 
